@@ -95,15 +95,42 @@
 
 ### 2.2. Creating and Connecting Vue App Instances
 
+- `createApp()`
+  - mount
+
 ### 2.3. Interpolation and Data Binding
 
+- Interpolation
+
+  ```vue
+  {{}}
+  ```
+
+- Data binding
+
+  ```vue
+  {{ outputGoal() }}
+  ```
+
 ### 2.4. Binding Attributes with the "v-bind" Directive
+
+- `v-bind`
+
+  ```html
+  <p>Learn more <a v-bind:href="vueLink">about Vue</a>.</p>
+  ```
 
 ### 2.5. Understanding "methods" in Vue Apps
 
 ### 2.6. Working with Data inside a Vue App
 
 ### 2.7. Outputting Raw HTML Content with v-html
+
+- `v-html`
+
+  ```html
+  <p v-html="outputGoal()"></p>
+  ```
 
 ### 2.8. A First Summary
 
