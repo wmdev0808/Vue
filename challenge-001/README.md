@@ -2,6 +2,78 @@
 
 ## 1. Getting Started
 
+### 1.1. What is Vue.js
+
+- What is Vue.js (or just `Vue`)?
+
+  - Vue.js(Vue) is a `JavaScript` `framework` that makes building interactive and `reative` `web frontends` (= browser-side web applications) easier.
+
+    - `JavaScript`
+
+      - A programming language that is supported by all browsers. It allows you to manipulate the already-running page and hence provide richer user experiences.
+
+    - `framework`
+
+      - A framework is a (third-party) library that exposes utility functionalities AND a "set of rules" (a clear guidance) on how to build your JavaScript application
+
+    - `reactive`
+
+      - Your app is able to react to user input, update the screen dynamically (e.g. to show overlays or input validation errors) -> Look and feel of mobile apps
+
+    - `web frontends`
+      - "What the user sees"
+        - HTML + CSS + JavaScript, running in the browser of your user
+
+  - Mobile apps and desktop apps `feel very "reactive"`: Things happen instantly, you `don't wait` for new pages to load or actions to start.
+
+  - Traditionally, in web apps, you click a link and wait for a new page to load. You click a button and wait for some action to complete.
+
+  - JavaScript To The Rescue!
+
+    - JavaScript runs in the browser - on the loaded page.
+    - You can manipulate the HTML structure(DOM) of the page.
+    - No (visible) request to the server required. no need to wait for a new HTML page as a response.
+
+  - But `Just JavaScript` May Not Be Ideal!
+    - You can build ANY kind of web application with just "vanilla" JavaScript
+      - No framework like Vue is needed!
+    - But
+      - You have to write all code on your own (-> re-invent the wheel)
+      - You might write suboptimal code or introduce errors & bugs
+      - Working in a team might be harder because not everyone knows you structure and "code philosophy"
+
+### 1.2. Different Ways of Using Vue
+
+- Vue can be used to control parts of HTML pages or entire pages.
+  - `Widget` approach on a multi-page-application.
+    - (Some) pages are still rendered `on and served by a backend server`.
+- Vue can also be used to control the entire frontend of a web application
+  - `Single-Page-Application`(SPA) approach.
+    - Server `only sends one HTML page`, thereafter, Vue takes over and controls the UI.
+
+### 1.3. Exploring Vue Alternatives
+
+- Vue.js
+
+  - Complete component-based UI framework, includes most core features. A bit less popular than React & Angular.
+
+- React.js
+
+  - Lean and focused component-based UI library. Certain features (e.g. routing) are added via community packages.
+
+- Angular
+  - Complete component-based UI framework, packed with features. Uses TypeScript. Can be overkill for smaller projects.
+
+### 1.4. Building Your First App with JavaScript
+
+### 1.5. Re-building the App with Vue.js
+
+### 1.6. Vue vs Vanilla JavaScript (Just JavaScript)
+
+### 1.7.
+
+### 1.8.
+
 ## 2. Basics and Core Concepts - Document Object Model(DOM) Interaction with Vue
 
 ## 3. Rendering Conditional Content and Lists
