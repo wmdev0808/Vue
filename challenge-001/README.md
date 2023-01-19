@@ -85,6 +85,62 @@
 
 ## 2. Basics and Core Concepts - Document Object Model(DOM) Interaction with Vue
 
+### 2.1. Module Introduction
+
+- Core Concepts (The Essentials)
+  - Module Content
+    - Vue + HTML = Templates
+    - Outputting Dynamic Content
+    - Reacting to User Input
+
+### 2.2. Creating and Connecting Vue App Instances
+
+### 2.3. Interpolation and Data Binding
+
+### 2.4. Binding Attributes with the "v-bind" Directive
+
+### 2.5. Understanding "methods" in Vue Apps
+
+### 2.6. Working with Data inside a Vue App
+
+### 2.7. Outputting Raw HTML Content with v-html
+
+### 2.8. A First Summary
+
+### 2.9. Understanding Event Binding
+
+### 2.10. Events & Methods
+
+### 2.11. Working with Event Arguments
+
+### 2.12. Using the Native Event Object
+
+### 2.13. Exploring Event Modifiers
+
+### 2.14. Locking Content with v-once
+
+### 2.15. Data Binding + Event Binding = Two-Way Binding
+
+### 2.16. Methods Used for Data Binding: How it Works
+
+### 2.17. Introducing Computed Properties
+
+### 2.18. Working with Watchers
+
+### 2.19. Methods vs Computed Properties vs Watchers
+
+### 2.20. v-bind and v-on Shorthands
+
+### 2.21. Dynamic Styling with Inline Styles
+
+### 2.22. Adding CSS Classes Dynamically
+
+### 2.23. Classes and Computed Properties
+
+### 2.24. Dynamic Classes Array Syntax
+
+### 2.25. Module Summary
+
 ## 3. Rendering Conditional Content and Lists
 
 ## 4. Project - The Monster Slayer Game
