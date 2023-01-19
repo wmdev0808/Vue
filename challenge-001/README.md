@@ -70,9 +70,18 @@
 
 ### 1.6. Vue vs Vanilla JavaScript (Just JavaScript)
 
-### 1.7.
+### 1.7. Outline and Contents
 
-### 1.8.
+- Basics
+
+  - Core Syntax, Templates, Directives, Data, Methods, Computed Properties, Watchers
+
+- Intermediate
+
+  - Components, Component Communication, Behind the Scenes, Forms, Http, Routing, Animations
+
+- Advanced
+  - Vuex, Authentication, Deployment & Optimizations, Composition API, Re-using Code
 
 ## 2. Basics and Core Concepts - Document Object Model(DOM) Interaction with Vue
 
