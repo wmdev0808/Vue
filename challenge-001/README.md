@@ -239,6 +239,24 @@
 
 ### 5.6. Working with Refs
 
+- Use case
+
+  - example0:
+
+    ```html
+    <input type="text" @input="saveInput" />
+    ```
+
+  - The above example can be implemented using different way, using `v-model`
+
+    ```html
+    <input type="text" v-model="currentUserInput" />
+    ```
+
+  - Here Vue is updating the underlying data regarding every keystroke
+    - It might be your purpose.
+    - For that, you can use `ref`
+
 ### 5.7. How Vue Updates the Document Object Model(DOM)
 
 ### 5.8. Vue App Lifecycle - Theory
