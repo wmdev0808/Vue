@@ -280,7 +280,9 @@
 
 ### 6.3. Introducing Components
 
-- Vue component = Vue mini app inside Vue app
+- Vue component
+  - Reusable building block in the app's template
+  - Vue mini app inside Vue app
 
 ### 6.4. Building Complex User Interfaces with Components
 
