@@ -271,6 +271,14 @@
 
 ## 6. Introducing Components
 
+### 6.1. Module Introduction
+
+### 6.2. Understanding the Problem
+
+### 6.3. Introducing Components
+
+### 6.4. Building Complex User Interfaces with Components
+
 ## 7. Moving to a Better Development Setup and Workflow with the Vue CLI
 
 ## 8. Component Communication
