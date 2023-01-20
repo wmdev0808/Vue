@@ -280,6 +280,8 @@
 
 ### 6.3. Introducing Components
 
+- Vue component = Vue mini app inside Vue app
+
 ### 6.4. Building Complex User Interfaces with Components
 
 ## 7. Moving to a Better Development Setup and Workflow with the Vue CLI
