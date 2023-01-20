@@ -192,6 +192,22 @@
 
 ## 4. Project - The Monster Slayer Game
 
+### 4.1. Module Introduction
+
+### 4.2. Project Setup and First Methods
+
+### 4.3. Updating the Healthbars
+
+### 4.4. Adding a Special Attack
+
+### 4.5. Adding a Heal Functionality
+
+### 4.6. Adding a Game Over Screen
+
+### 4.7. Finishing the Core Functionality
+
+### 4.8. Adding a Battle Log
+
 ## 5. Vue Behind the Scenes
 
 ## 6. Introducing Components
