@@ -170,6 +170,26 @@
 
 ## 3. Rendering Conditional Content and Lists
 
+### 3.1. Module Introduction
+
+### 3.2. Understanding the Problem
+
+### 3.3. Rendering Content Conditionally
+
+### 3.4. v-if, v-else, and v-else-if
+
+### 3.5. Using v-show instead of v-if
+
+### 3.6. Rendering Lists of Data
+
+### 3.7. Diving Deeper into v-for
+
+### 3.8. Removing List Items
+
+### 3.9. Listening to Events
+
+### 3.10. Module Summary
+
 ## 4. Project - The Monster Slayer Game
 
 ## 5. Vue Behind the Scenes
