@@ -288,6 +288,80 @@
 
 ## 7. Moving to a Better Development Setup and Workflow with the Vue CLI
 
+### 7.1. Module Introduction
+
+### 7.2. Why You Need a Development Server
+
+- Why Need A Proper (Development) Web Server
+
+  - `Double-clicking` index.html doesn't run the app under realistic circumstances
+
+    - We use the `file://` protocol instead of the `https://` protocol
+    - Some (modern JavaScript or Browser) features will not work there
+    - The final, deployed app will be served via `https://` not via `file://`
+
+  - So, we need a development web server
+
+### 7.3. Why You Want a Better Developer Experience
+
+- We Want A Better Developer Experience
+
+  - Current State
+
+    - We always need to reload the page whenever we make any change.
+    - IDE auto-completion is highly limited
+    - We work in just one file OR we need to handle multiple files with multiple `<script src="..." imports`
+
+  - Wanted State
+    - Saved changes should be auto-detected and page should reload/update
+    - IDE should provide better auto-completion and hints
+    - We should be able to split code into multiple files and export/import via ES modules
+
+### 7.4. Installing and Using the Vue CLI
+
+- `Vue CLI` is in Maintenance Mode!
+
+  - For new projects, it is now recommended to use `create-vue` to scaffold Vite-based projects.
+
+- `create-vue`
+
+  - The recommended way to start a Vite-powered Vue project
+  - Usage:
+
+    ```
+    npm create vue@3
+    ```
+
+    - Or, if you need to support IE11, you can create a Vue 2 project with:
+
+      ```
+      npm create vue@2
+      ```
+
+    - Note that the version number (@3 or @2) MUST NOT be omitted, otherwise npm may resolve to a cached and outdated version of the package.
+
+  - Difference from Vue CLI
+
+    - Vue CLI is based on webpack, while `create-vue` is based on [Vite](https://vitejs.dev/). Vite supports most of the configured conventions found in Vue CLI projects out of the box, and provides a significantly better development experience due to its extremely fast startup and hot-module replacement speed. Learn more about why we recommend Vite over webpack [here](https://vitejs.dev/guide/why.html).
+
+    - Unlike Vue CLI, `create-vue` itself is just a scaffolding tool: it creates a pre-configured project base on the features you choose, and delegates the rest to Vite. Projects scaffolded this way can directly leverage the [Vite plugin ecosystem](https://vitejs.dev/plugins/) which is Rollup-compatible.
+
+### 7.5. Inspecting the Created Project
+
+### 7.6. Inspecting the Vue Code and ".vue" Files
+
+### 7.7. Adding the "Vetur" Extension to Visual Studio Code
+
+### 7.8. More on ".vue" Files
+
+### 7.9. A New Vue Project
+
+### 7.10. Creating a Basic Vue App
+
+### 7.11. Adding a Component
+
+### 7.12. Adding Styling
+
 ## 8. Component Communication
 
 ## 9. Diving Deeper into Components
