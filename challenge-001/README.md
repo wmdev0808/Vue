@@ -259,7 +259,13 @@
 
 ### 5.7. How Vue Updates the Document Object Model(DOM)
 
+- How Vue Updates The DOM
+
+  - ![](./05%20Vue%20Behind%20the%20Scenes/04-virtual-dom/5.7_1.png)
+
 ### 5.8. Vue App Lifecycle - Theory
+
+- ![](./05%20Vue%20Behind%20the%20Scenes/05-lifecycle/5.8_1.png)
 
 ### 5.9. Vue App Lifecycle - Practice
 
