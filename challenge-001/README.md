@@ -273,6 +273,9 @@
 
 ### 6.1. Module Introduction
 
+- Understanding Vue Components
+  - Connected Vue Instances
+
 ### 6.2. Understanding the Problem
 
 ### 6.3. Introducing Components
