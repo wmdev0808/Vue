@@ -210,6 +210,28 @@
 
 ## 5. Vue Behind the Scenes
 
+### 5.1. Module Introduction
+
+- Vue: Behind the Scenes
+  - How Vue Works
+  - Understanding `Virtual DOM` & DOM Updating
+
+### 5.2. An Introduction to Vue's Reactivity
+
+### 5.3. Vue Reactivity: A Deep Dive
+
+### 5.4. One App vs Multiple Apps
+
+### 5.5. Understanding Templates
+
+### 5.6. Working with Refs
+
+### 5.7. How Vue Updates the Document Object Model(DOM)
+
+### 5.8. Vue App Lifecycle - Theory
+
+### 5.9. Vue App Lifecycle - Practice
+
 ## 6. Introducing Components
 
 ## 7. Moving to a Better Development Setup and Workflow with the Vue CLI
