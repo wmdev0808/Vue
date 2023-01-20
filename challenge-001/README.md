@@ -227,6 +227,11 @@
 
 ### 5.4. One App vs Multiple Apps
 
+- You can have multiple Vue apps creating new apps using `Vue.createApp`
+  - You can't use the states from other apps, meaning there's no connection between apps
+  - If you need different independent parts in your app, then you can use multiple Vue apps separately.
+  - However, if you want different parts of the app to work dependently, you should use the same Vue app.
+
 ### 5.5. Understanding Templates
 
 ### 5.6. Working with Refs

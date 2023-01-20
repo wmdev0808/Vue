@@ -17,6 +17,16 @@ const app = Vue.createApp({
 
 app.mount("#app");
 
+const app2 = Vue.createApp({
+  data() {
+    return {
+      favoriteMeal: "Pizza",
+    };
+  },
+});
+
+app2.mount("#app2");
+
 // ** Demonstrate vanilla JavaScript Proxy feature which is used by Vue under the hood **
 
 /**
