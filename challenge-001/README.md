@@ -234,6 +234,9 @@
 
 ### 5.5. Understanding Templates
 
+- In HTML file using Vue,
+  - You should not make one Vue app to control multiple content parts or vice versa.
+
 ### 5.6. Working with Refs
 
 ### 5.7. How Vue Updates the Document Object Model(DOM)
