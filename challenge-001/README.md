@@ -218,7 +218,12 @@
 
 ### 5.2. An Introduction to Vue's Reactivity
 
+- Use JavaScript Proxy
+
 ### 5.3. Vue Reactivity: A Deep Dive
+
+- JavaScript Proxy
+  - Set trap
 
 ### 5.4. One App vs Multiple Apps
 
