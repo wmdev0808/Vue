@@ -16,6 +16,7 @@
         {{ emailAddress }}
       </li>
     </ul>
+    <button @click="$emit('delete', id)">Delete</button>
   </li>
 </template>
 
@@ -44,6 +45,9 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
+      // validator: function(value) {
+      //   return value === '1' || value === '0';
+      // }
     },
   },
   data() {
@@ -51,7 +55,7 @@ export default defineComponent({
       detailsAreVisible: false,
     };
   },
-  emits: ["toggle-favorite"],
+  emits: ["toggle-favorite", "delete"],
   // emits: {
   //   "toggle-favorite": function (id: string) {
   //     if (id) {
