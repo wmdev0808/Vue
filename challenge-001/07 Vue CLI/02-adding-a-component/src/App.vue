@@ -1,11 +1,5 @@
-<script lang="ts">
+<script setup lang="ts">
 import FriendContact from "./components/FriendContact.vue";
-
-export default {
-  components: {
-    FriendContact,
-  },
-};
 </script>
 
 <template>
