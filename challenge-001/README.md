@@ -391,6 +391,15 @@
 
 ### 8.1. Module Introduction
 
+- Component Communication & Re-Usable Components
+
+  - Gaining Flexibility!
+
+- Content
+  - Building a User Interface with Components
+  - How Component Communication Works
+  - Different Kinds of Component Communication
+
 ### 8.2. Introducing "Props" (Parent => Child Communication)
 
 ### 8.3. Prop Behavior & Changing Props
