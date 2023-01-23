@@ -51,18 +51,23 @@ export default defineComponent({
       detailsAreVisible: false,
     };
   },
-  emits: {
-    toggleFavorite(_payload: string) {
-      // perform runtime validation
-      return _payload.length > 0;
-    },
-  },
+  emits: ["toggle-favorite"],
+  // emits: {
+  //   "toggle-favorite": function (id: string) {
+  //     if (id) {
+  //       return true;
+  //     } else {
+  //       console.warn("Id is missing");
+  //       return false;
+  //     }
+  //   },
+  // },
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      this.$emit("toggleFavorite", this.id);
+      this.$emit("toggle-favorite", this.id);
     },
   },
 });
