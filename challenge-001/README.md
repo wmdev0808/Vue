@@ -350,7 +350,32 @@
 
 ### 7.6. Inspecting the Vue Code and ".vue" Files
 
+- Using a Build Workflow
+  - Our Code
+    - Uses next-gen and Vue-specific Syntax & Features
+  - "Build Step"
+    - Changes code to use standard JS code
+  - Development or Real Server
+    - Host and run a regular JavaScript-based web app
+
 ### 7.7. Adding the "Vetur" Extension to Visual Studio Code
+
+- For 2.x
+
+  - `Vetur`
+
+- For 3.x
+
+  - `Volar`
+
+    - `Volar` is the official VSCode extension that provides TypeScript support inside Vue SFCs, along with many other great features.
+
+    - TIP
+
+      - `Volar` replaces `Vetur`, our previous official VSCode extension for Vue 2. If you have `Vetur` currently installed, make sure to disable it in Vue 3 projects.
+
+  - `TypeScript Vue Plugin`
+    - This is also needed to get type support for `*.vue` imports in TS files.
 
 ### 7.8. More on ".vue" Files
 
