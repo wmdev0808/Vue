@@ -12,6 +12,7 @@ import FriendContact from "./components/FriendContact.vue";
         name="Manuel Lorenz"
         phone-number="01234 78992"
         email-address="manuel@localhost.com"
+        is-favorite="1"
       ></friend-contact>
       <friend-contact
         name="Julie Jones"
@@ -69,6 +70,7 @@ header {
   border: 1px solid #ff0077;
   background-color: #ff0077;
   color: white;
+  margin: 1rem;
   padding: 0.05rem 1rem;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.26);
 }
