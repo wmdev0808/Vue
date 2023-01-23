@@ -404,7 +404,13 @@
 
 ### 8.3. Prop Behavior & Changing Props
 
+- Props should not be mutated by the component
+  - Vue data flow should be uni-directional
+
 ### 8.4. Validating Props
+
+- When a prop break the validation rules, the developer console just shows `Warning`
+- For custom validator, you will get `Invalid prop: custom validator check failed for prop "xxx"`.
 
 ### 8.5. Working with Dynamic Prop Values
 
