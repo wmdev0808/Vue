@@ -1,6 +1,6 @@
 <template>
   <li>
-    <h2>{{ name }} {{ friendIsFavorite ? "(Favorite)" : "" }}</h2>
+    <h2>{{ name }} {{ isFavorite ? "(Favorite)" : "" }}</h2>
 
     <button @click="toggleFavorite">Toggle Favorite</button>
     <button @click="toggleDetails">
@@ -24,6 +24,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -40,23 +44,25 @@ export default defineComponent({
       type: Boolean,
       required: false,
       default: false,
-      // validator: function (value: string) {
-      //   return value === "1" || value === "0";
-      // },
     },
   },
   data() {
     return {
       detailsAreVisible: false,
-      friendIsFavorite: this.isFavorite,
     };
+  },
+  emits: {
+    toggleFavorite(_payload: string) {
+      // perform runtime validation
+      return _payload.length > 0;
+    },
   },
   methods: {
     toggleDetails() {
       this.detailsAreVisible = !this.detailsAreVisible;
     },
     toggleFavorite() {
-      this.friendIsFavorite = !this.friendIsFavorite;
+      this.$emit("toggleFavorite", this.id);
     },
   },
 });
