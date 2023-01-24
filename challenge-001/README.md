@@ -424,6 +424,10 @@
 
 ### 8.10. A Potential Problem
 
+- Path-through problem:
+  - We have unnecessary path through steps to communicate between components
+    - For example, using `@select-topic` custom event
+
 ### 8.11. Provide + Inject To The Rescue
 
 ### 8.12. Provide + Inject for Functions / Methods
