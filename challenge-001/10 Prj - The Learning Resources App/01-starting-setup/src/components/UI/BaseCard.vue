@@ -4,6 +4,10 @@
   </div>
 </template>
 
+<script lang="ts">
+export default {};
+</script>
+
 <style scoped>
 div {
   border-radius: 12px;

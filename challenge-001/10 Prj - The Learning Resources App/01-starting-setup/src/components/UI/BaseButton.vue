@@ -8,8 +8,8 @@
 import { defineComponent, type PropType } from "vue";
 
 export enum ButtonMode {
-  DEFAULT = "DEFAULT",
-  FLAT = "FLAT",
+  DEFAULT = "",
+  FLAT = "flat",
 }
 
 export default defineComponent({
