@@ -1,10 +1,20 @@
 <template>
   <section>
     <base-card>
-      <template v-slot:header>
+      <!-- <template v-slot:header>
         <h2>Available Badges</h2>
       </template>
       <template v-slot:default>
+        <ul>
+          <li>
+            <base-badge :type="RoleTypes.admin" caption="ADMIN"></base-badge>
+          </li>
+          <li>
+            <base-badge :type="RoleTypes.author" caption="AUTHOR"></base-badge>
+          </li>
+        </ul>
+      </template> -->
+      <template #default>
         <ul>
           <li>
             <base-badge :type="RoleTypes.admin" caption="ADMIN"></base-badge>

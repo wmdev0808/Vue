@@ -1,11 +1,21 @@
 <template>
   <div>
-    <header>
+    <header v-if="$slots.header">
       <slot name="header"></slot>
     </header>
     <slot></slot>
   </div>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  mounted() {
+    console.log(this.$slots.header);
+  },
+});
+</script>
 
 <style scoped>
 header {

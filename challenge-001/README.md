@@ -471,6 +471,18 @@
 
 ### 9.6. Named Slots
 
+- A `<slot>` outlet without name implicitly has the name "default".
+
+  ```html
+  <BaseLayout>
+    <template v-slot:header>
+      <!-- content for the header slot -->
+    </template>
+  </BaseLayout>
+  ```
+
+- `v-slot` has a dedicated shorthand `#`, so `<template v-slot:header>` can be shortened to just `<template #header>`. Think of it as "render this template fragment in the child component's 'header' slot".
+
 ### 9.7. Slot Styles & Compilation
 
 ### 9.8. More on Slots
