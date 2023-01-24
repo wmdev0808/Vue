@@ -8,20 +8,28 @@
       :info-text="activeUser.description"
       :role="activeUser.role"
     ></user-info>
-    <course-goals #default="slotProps">
-      <h2>{{ slotProps.item }}</h2>
-      <p>{{ slotProps.anotherProp }}</p>
-    </course-goals>
+    <section>
+      <div>
+        <course-goals #default="slotProps">
+          <h2>{{ slotProps.item }}</h2>
+          <p>{{ slotProps.anotherProp }}</p>
+        </course-goals>
 
-    <button @click="setSelectedComponent('active-goals')">Active Goals</button>
-    <button @click="setSelectedComponent('manage-goals')">Mange Goals</button>
-    <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
+        <button @click="setSelectedComponent('active-goals')">
+          Active Goals
+        </button>
+        <button @click="setSelectedComponent('manage-goals')">
+          Mange Goals
+        </button>
+        <!-- <active-goals v-if="selectedComponent === 'active-goals'"></active-goals>
     <manage-goals v-if="selectedComponent === 'manage-goals'"></manage-goals> -->
-    <div class="dynamic-cmp">
-      <keep-alive>
-        <component :is="selectedComponent"></component>
-      </keep-alive>
-    </div>
+        <div class="dynamic-cmp">
+          <keep-alive>
+            <component :is="selectedComponent"></component>
+          </keep-alive>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
@@ -68,5 +76,13 @@ html {
 
 body {
   margin: 0;
+}
+
+div {
+  margin: 2rem auto;
+  max-width: 30rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  padding: 1rem;
 }
 </style>
