@@ -4,7 +4,7 @@
   </header>
 </template>
 
-<style>
+<style styled>
 header {
   width: 100%;
   height: 5rem;
