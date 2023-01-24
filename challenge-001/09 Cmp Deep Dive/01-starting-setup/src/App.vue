@@ -53,7 +53,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import TheHeader from "./components/TheHeader.vue";
+import TheHeader from "./components/layout/TheHeader.vue";
 import BadgeList from "./components/BadgeList.vue";
 import UserInfo from "./components/UserInfo.vue";
 import CourseGoals from "./components/CourseGoals.vue";
