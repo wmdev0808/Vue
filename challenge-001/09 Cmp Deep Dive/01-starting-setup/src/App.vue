@@ -18,7 +18,7 @@ export default defineComponent({
   data() {
     return {
       activeUser: {
-        name: "Maximilian Schwarzmüller",
+        name: "Paul Li",
         description: "Site owner and admin",
         role: RoleTypes.admin,
       },
