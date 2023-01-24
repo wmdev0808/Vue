@@ -461,11 +461,50 @@
 
 ### 9.1. Module Introduction
 
+- Unlocking The Full Potential
+- Module Content
+
+  - Component Registration & Styling
+  - Slots & Dynamic Components
+  - Naming & Folder Structure
+
 ### 9.2. Project Setup
 
 ### 9.3. Global vs Local Components
 
+- Global Components
+
+  - Components you can `use anywhere` in your Vue app - i.e. in `any template`.
+
+  ```js
+  const app = createApp(App);
+  app.component('base-badge', BaseBadge);
+  ...
+  ```
+
+- Local Components
+
+  ```js
+  import TheHeader from './components/TheHeader.vue';
+
+  export default {
+    components: {
+      'the-header': TheHeader
+    },
+    ...
+  }
+  ```
+
 ### 9.4. Scoped Styles
+
+```html
+...
+<style scoped>
+  header {
+    width: 100%;
+  }
+</style>
+```
 
 ### 9.5. Introducing Slots
 
@@ -504,6 +543,26 @@
 ### 9.16. Moving to a Different Folder Structure
 
 ### 9.17. Module Summary
+
+- Component Registration & Styles
+
+  - Components can be registered `globally or locally: Prefer local` registration.
+
+  - Styles can be `global or scoped` to a component: `Prefer scoped` for most components.
+
+- Slots
+
+  - `Slots` can be used to add a `placeholder` for dynamic HTML code.
+  - `Multiple, named slots` are possible, `default fallbacks` can be provided. `Scoped slots` allow adv. use-cases.
+
+- Dynamic Components
+
+  - Components can be `swapped dynamically` via the built-in `component" component.
+  - Component caching can be added via the `keep-alive` component.
+
+- Teleport & Style Guide
+  - `DOM structure can be maintained` via `teleport` - it `keeps the component hierarchy!`
+  - `Consider following the official style guide` to keep your code clean and understandable.
 
 ## 10. Project: The Learning Resources App
 
