@@ -1,10 +1,12 @@
 <template>
   <section>
-    <div>
-      <h3>{{ fullName }}</h3>
-      <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
-    </div>
-    <p>{{ infoText }}</p>
+    <base-card>
+      <header>
+        <h3>{{ fullName }}</h3>
+        <base-badge :type="role" :caption="role.toUpperCase()"></base-badge>
+      </header>
+      <p>{{ infoText }}</p>
+    </base-card>
   </section>
 </template>
 
@@ -32,6 +34,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import BaseBadge, { RoleTypes } from "./BaseBadge.vue";
+import BaseCard from "./BaseCard.vue";
 </script>
 
 <style scoped>
@@ -43,9 +46,10 @@ section {
   padding: 1rem;
 }
 
-section div {
+section header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 1rem;
 }
 </style>
