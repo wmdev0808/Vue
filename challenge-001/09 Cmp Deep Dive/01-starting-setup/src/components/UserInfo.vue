@@ -42,6 +42,6 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import BaseBadge, { RoleTypes } from "./BaseBadge.vue";
-import BaseCard from "./BaseCard.vue";
+import BaseBadge, { RoleTypes } from "./UI/BaseBadge.vue";
+import BaseCard from "./UI/BaseCard.vue";
 </script>

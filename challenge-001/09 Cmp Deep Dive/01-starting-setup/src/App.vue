@@ -27,7 +27,7 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import { RoleTypes } from "./components/BaseBadge.vue";
+import { RoleTypes } from "./components/UI/BaseBadge.vue";
 
 export default defineComponent({
   data() {
