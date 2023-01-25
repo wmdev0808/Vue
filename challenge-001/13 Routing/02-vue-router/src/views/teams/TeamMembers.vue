@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import { defineComponent, inject } from "vue";
-import type { RouteLocationNormalizedLoaded } from "vue-router";
+// import type { RouteLocationNormalizedLoaded } from "vue-router";
 
 import type Team from "@/types/Team";
 import type { User } from "@/types/User";
@@ -78,6 +78,12 @@ export default defineComponent({
     // this.loadTeamMembers(this.$route);
     this.loadTeamMembers(this.teamId);
     console.log(this.$route.query);
+  },
+  beforeRouteUpdate(to, from, next) {
+    console.log("TeamMembers Cmp beforeRouteUpdate");
+    console.log(to, from);
+    // this.loadTeamMembers(to.params.teamId as string);
+    next();
   },
   watch: {
     // $route(newRoute: RouteLocationNormalizedLoaded) {
