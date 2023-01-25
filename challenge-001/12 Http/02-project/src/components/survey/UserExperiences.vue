@@ -8,6 +8,10 @@
         >
       </div>
       <p v-if="isLoading">Loading...</p>
+      <p v-else-if="!isLoading && error">{{ error }}</p>
+      <p v-else-if="!isLoading && (!results || results.length === 0)">
+        No stored experiences found. Start adding some survey results first.
+      </p>
       <ul v-else>
         <survey-result
           v-for="result in results"
@@ -29,11 +33,13 @@ export default defineComponent({
     return {
       results: [] as SurveyResultEntry[],
       isLoading: false,
+      error: null as string | null,
     };
   },
   methods: {
     loadExperiences() {
       this.isLoading = true;
+      this.error = null;
 
       fetch(`${import.meta.env.VITE_DB_BASE_URL}/surveys.json`)
         .then((response) => {
@@ -52,6 +58,11 @@ export default defineComponent({
             });
           }
           this.results = results;
+        })
+        .catch((error) => {
+          console.log(error);
+          this.isLoading = false;
+          this.error = "Failed to fetch data - please try again later.";
         });
     },
   },
