@@ -99,7 +99,7 @@
       </div>
     </div>
     <div class="form-control">
-      <rating-control></rating-control>
+      <rating-control v-model="rating"></rating-control>
     </div>
     <div class="form-control">
       <input
@@ -118,16 +118,18 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import type Rating from "@/types/Rating";
 
 export default defineComponent({
   data() {
     return {
       userName: "",
-      userAge: null,
+      userAge: null as number | null,
       referrer: "wom",
-      interest: [],
-      how: null,
+      interest: [] as string[],
+      how: null as string | null,
       confirm: false,
+      rating: null as Rating | null,
       userNameValidity: "pending",
     };
   },
@@ -151,6 +153,9 @@ export default defineComponent({
       console.log("Confirm?");
       console.log(this.confirm);
       this.confirm = false;
+      console.log("Rating");
+      console.log(this.rating);
+      this.rating = null;
     },
     validateInput() {
       if (this.userName === "") {

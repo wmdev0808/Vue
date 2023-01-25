@@ -1,40 +1,48 @@
 <template>
   <ul>
-    <li :class="{ active: activeOption === Rating.POOR }">
+    <li :class="{ active: modelValue === Rating.POOR }">
       <button type="button" @click="activate(Rating.POOR)">Poor</button>
     </li>
-    <li :class="{ active: activeOption === Rating.AVERAGE }">
+    <li :class="{ active: modelValue === Rating.AVERAGE }">
       <button type="button" @click="activate(Rating.AVERAGE)">Average</button>
     </li>
-    <li :class="{ active: activeOption === Rating.GREAT }">
+    <li :class="{ active: modelValue === Rating.GREAT }">
       <button type="button" @click="activate(Rating.GREAT)">Great</button>
     </li>
   </ul>
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
+import { defineComponent, type PropType } from "vue";
 
 export default defineComponent({
-  data() {
-    return {
-      activeOption: null as Rating | null,
-    };
+  emits: ["update:modelValue"],
+  props: {
+    modelValue: {
+      type: String as PropType<Rating | null>,
+      default: null,
+    },
   },
+  // data() {
+  //   return {
+  //     activeOption: this.modelValue,
+  //   };
+  // },
+  // computed: {
+  //   activeOption(): Rating | null {
+  //     return this.modelValue;
+  //   },
+  // },
   methods: {
     activate(option: Rating) {
-      this.activeOption = option;
+      this.$emit("update:modelValue", option);
     },
   },
 });
 </script>
 
 <script setup lang="ts">
-enum Rating {
-  POOR = "poor",
-  AVERAGE = "average",
-  GREAT = "great",
-}
+import Rating from "../types/Rating";
 </script>
 
 <style scoped>
