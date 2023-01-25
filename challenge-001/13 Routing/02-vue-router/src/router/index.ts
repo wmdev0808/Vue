@@ -20,6 +20,7 @@ const router = createRouter({
     {
       path: "/teams/:teamId",
       component: TeamMembers,
+      props: true,
     },
     {
       path: "/users",

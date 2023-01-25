@@ -32,6 +32,12 @@ export default defineComponent({
   components: {
     UserItem,
   },
+  props: {
+    teamId: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       teamName: "",
@@ -39,8 +45,19 @@ export default defineComponent({
     };
   },
   methods: {
-    loadTeamMembers(route: RouteLocationNormalizedLoaded) {
-      const teamId = route.params.teamId;
+    // loadTeamMembers(route: RouteLocationNormalizedLoaded) {
+    //   const teamId = route.params.teamId;
+    //   const selectedTeam = this.teams?.find((team) => team.id === teamId)!;
+    //   const members = selectedTeam.members;
+    //   const selectedMembers = [];
+    //   for (const member of members) {
+    //     const selectedUser = this.users?.find((user) => user.id === member)!;
+    //     selectedMembers.push(selectedUser);
+    //   }
+    //   this.members = selectedMembers;
+    //   this.teamName = selectedTeam.name;
+    // },
+    loadTeamMembers(teamId: string) {
       const selectedTeam = this.teams?.find((team) => team.id === teamId)!;
       const members = selectedTeam.members;
       const selectedMembers = [];
@@ -54,11 +71,15 @@ export default defineComponent({
   },
   created() {
     // this.$route.path // /teams/t1
-    this.loadTeamMembers(this.$route);
+    // this.loadTeamMembers(this.$route);
+    this.loadTeamMembers(this.teamId);
   },
   watch: {
-    $route(newRoute: RouteLocationNormalizedLoaded) {
-      this.loadTeamMembers(newRoute);
+    // $route(newRoute: RouteLocationNormalizedLoaded) {
+    //   this.loadTeamMembers(newRoute);
+    // },
+    teamId(newId: string) {
+      this.loadTeamMembers(newId);
     },
   },
 });
