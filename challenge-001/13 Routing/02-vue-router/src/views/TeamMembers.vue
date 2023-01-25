@@ -9,11 +9,13 @@
         :role="member.role"
       ></user-item>
     </ul>
+    <router-link to="/teams/t2">Go to Team 2</router-link>
   </section>
 </template>
 
 <script lang="ts">
 import { defineComponent, inject } from "vue";
+import type { RouteLocationNormalizedLoaded } from "vue-router";
 
 import type Team from "@/types/Team";
 import type { User } from "@/types/User";
@@ -36,18 +38,28 @@ export default defineComponent({
       members: [] as User[],
     };
   },
+  methods: {
+    loadTeamMembers(route: RouteLocationNormalizedLoaded) {
+      const teamId = route.params.teamId;
+      const selectedTeam = this.teams?.find((team) => team.id === teamId)!;
+      const members = selectedTeam.members;
+      const selectedMembers = [];
+      for (const member of members) {
+        const selectedUser = this.users?.find((user) => user.id === member)!;
+        selectedMembers.push(selectedUser);
+      }
+      this.members = selectedMembers;
+      this.teamName = selectedTeam.name;
+    },
+  },
   created() {
     // this.$route.path // /teams/t1
-    const teamId = this.$route.params.teamId;
-    const selectedTeam = this.teams?.find((team) => team.id === teamId)!;
-    const members = selectedTeam.members;
-    const selectedMembers = [];
-    for (const member of members) {
-      const selectedUser = this.users?.find((user) => user.id === member)!;
-      selectedMembers.push(selectedUser);
-    }
-    this.members = selectedMembers;
-    this.teamName = selectedTeam.name;
+    this.loadTeamMembers(this.$route);
+  },
+  watch: {
+    $route(newRoute: RouteLocationNormalizedLoaded) {
+      this.loadTeamMembers(newRoute);
+    },
   },
 });
 </script>
