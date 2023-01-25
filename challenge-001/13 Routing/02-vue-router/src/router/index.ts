@@ -2,7 +2,9 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import TeamsList from "@/views/teams/TeamsList.vue";
 import TeamMembers from "@/views/teams/TeamMembers.vue";
+import TeamsFooter from "@/views/teams/TeamsFooter.vue";
 import UsersList from "@/views/users/UsersList.vue";
+import UsersFooter from "@/views/users/UsersFooter.vue";
 import NotFound from "@/views/NotFound.vue";
 // import HomeView from "@/views/HomeView.vue";
 
@@ -18,7 +20,7 @@ const router = createRouter({
     {
       path: "/teams",
       name: "teams",
-      component: TeamsList,
+      components: { default: TeamsList, footer: TeamsFooter },
       children: [
         {
           name: "team-members",
@@ -30,7 +32,7 @@ const router = createRouter({
     }, // our-domain.com/teams => TeamsList
     {
       path: "/users",
-      component: UsersList,
+      components: { default: UsersList, footer: UsersFooter },
     },
     {
       path: "/about",
