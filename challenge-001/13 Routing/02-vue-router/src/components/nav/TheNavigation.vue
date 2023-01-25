@@ -49,11 +49,9 @@ a {
 
 a:hover,
 a:active,
-nav a.router-link-exact-active,
-nav a.router-link-exact-active:hover {
+a.active {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
 }
-
 </style>
