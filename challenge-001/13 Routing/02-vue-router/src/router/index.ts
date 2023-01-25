@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import TeamsList from "@/views/TeamsList.vue";
 import UsersList from "@/views/UsersList.vue";
 import HomeView from "@/views/HomeView.vue";
+import TeamMembers from "@/views/TeamMembers.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,6 +16,10 @@ const router = createRouter({
     {
       path: "/teams",
       component: TeamsList, // our-domain.com/teams => TeamsList
+    },
+    {
+      path: "/teams/:teamId",
+      component: TeamMembers,
     },
     {
       path: "/users",

@@ -32,8 +32,8 @@ export default defineComponent({
   },
   provide() {
     return {
-      teams: this.teams,
-      users: this.users,
+      teams: this.teams as Team[],
+      users: this.users as User[],
     };
   },
 });

@@ -2,7 +2,7 @@
   <li>
     <h3>{{ name }}</h3>
     <div class="team-members">{{ memberCount }} Members</div>
-    <a href="#">View Members</a>
+    <router-link :to="teamMembersLink">View Members</router-link>
   </li>
 </template>
 
@@ -11,6 +11,10 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   props: {
+    id: {
+      type: String,
+      required: true,
+    },
     name: {
       type: String,
       required: true,
@@ -18,6 +22,11 @@ export default defineComponent({
     memberCount: {
       type: Number,
       required: true,
+    },
+  },
+  computed: {
+    teamMembersLink() {
+      return "/teams/" + this.id;
     },
   },
 });

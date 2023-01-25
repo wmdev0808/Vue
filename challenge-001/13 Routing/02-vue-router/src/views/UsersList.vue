@@ -1,4 +1,5 @@
 <template>
+  <button @click="confirmInput">Confirm</button>
   <ul>
     <user-item
       v-for="user in users"
@@ -8,6 +9,19 @@
     ></user-item>
   </ul>
 </template>
+
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  methods: {
+    confirmInput() {
+      // do something
+      this.$router.push("/teams");
+    },
+  },
+});
+</script>
 
 <script setup lang="ts">
 import { inject } from "vue";
