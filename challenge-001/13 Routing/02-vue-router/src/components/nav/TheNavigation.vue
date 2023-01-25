@@ -3,28 +3,15 @@
     <nav>
       <ul>
         <li>
-          <button @click="setActivePage('teams-list')">Teams</button>
+          <router-link to="/teams">Teams</router-link>
         </li>
         <li>
-          <button @click="setActivePage('users-list')">Users</button>
+          <router-link to="/users">Users</router-link>
         </li>
       </ul>
     </nav>
   </header>
 </template>
-
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  emits: ["set-page"],
-  methods: {
-    setActivePage(page: string) {
-      this.$emit("set-page", page);
-    },
-  },
-});
-</script>
 
 <style scoped>
 header {
@@ -50,9 +37,8 @@ ul {
 li {
   margin: 0 2rem;
 }
-
-button {
-  font: inherit;
+a {
+  text-decoration: none;
   background: transparent;
   border: 1px solid transparent;
   cursor: pointer;
@@ -61,11 +47,13 @@ button {
   display: inline-block;
 }
 
-button:hover,
-button:active,
-button:focus {
+a:hover,
+a:active,
+nav a.router-link-exact-active,
+nav a.router-link-exact-active:hover {
   color: #f1a80a;
   border-color: #f1a80a;
   background-color: #1a037e;
 }
+
 </style>

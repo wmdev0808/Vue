@@ -1,5 +1,5 @@
 <template>
-  <the-navigation @set-page="setActivePage"></the-navigation>
+  <the-navigation></the-navigation>
   <main>
     <router-view></router-view>
   </main>
@@ -36,17 +36,10 @@ export default defineComponent({
       users: this.users,
     };
   },
-  methods: {
-    setActivePage(page: string) {
-      this.activePage = page;
-    },
-  },
 });
 </script>
 
 <script setup lang="ts">
-// import TeamsList from "./components/teams/TeamsList.vue";
-// import UsersList from "./components/users/UsersList.vue";
 import TheNavigation from "./components/nav/TheNavigation.vue";
 </script>
 
