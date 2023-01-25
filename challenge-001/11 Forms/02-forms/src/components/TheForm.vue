@@ -99,6 +99,9 @@
       </div>
     </div>
     <div class="form-control">
+      <rating-control></rating-control>
+    </div>
+    <div class="form-control">
       <input
         type="checkbox"
         id="confirm-terms"
@@ -158,6 +161,10 @@ export default defineComponent({
     },
   },
 });
+</script>
+
+<script setup lang="ts">
+import RatingControl from "./RatingControl.vue";
 </script>
 
 <style scoped>
