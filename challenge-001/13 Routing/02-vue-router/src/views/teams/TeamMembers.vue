@@ -37,6 +37,10 @@ export default defineComponent({
       type: String,
       required: true,
     },
+    sort: {
+      type: String,
+      required: false,
+    },
   },
   data() {
     return {
@@ -73,6 +77,7 @@ export default defineComponent({
     // this.$route.path // /teams/t1
     // this.loadTeamMembers(this.$route);
     this.loadTeamMembers(this.teamId);
+    console.log(this.$route.query);
   },
   watch: {
     // $route(newRoute: RouteLocationNormalizedLoaded) {
