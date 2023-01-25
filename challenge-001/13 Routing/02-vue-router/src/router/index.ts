@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from "vue-router";
 
-import TeamsList from "@/views/TeamsList.vue";
-import UsersList from "@/views/UsersList.vue";
-import HomeView from "@/views/HomeView.vue";
-import TeamMembers from "@/views/TeamMembers.vue";
+import TeamsList from "@/views/teams/TeamsList.vue";
+import TeamMembers from "@/views/teams/TeamMembers.vue";
+import UsersList from "@/views/users/UsersList.vue";
 import NotFound from "@/views/NotFound.vue";
+// import HomeView from "@/views/HomeView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -17,13 +17,17 @@ const router = createRouter({
     { path: "/", redirect: "/teams" },
     {
       path: "/teams",
-      component: TeamsList, // our-domain.com/teams => TeamsList
-    },
-    {
-      path: "/teams/:teamId",
-      component: TeamMembers,
-      props: true,
-    },
+      name: "teams",
+      component: TeamsList,
+      children: [
+        {
+          name: "team-members",
+          path: ":teamId",
+          component: TeamMembers,
+          props: true,
+        }, // /teams/t1
+      ],
+    }, // our-domain.com/teams => TeamsList
     {
       path: "/users",
       component: UsersList,

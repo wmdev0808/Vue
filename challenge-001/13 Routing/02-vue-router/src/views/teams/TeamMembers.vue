@@ -20,7 +20,7 @@ import type { RouteLocationNormalizedLoaded } from "vue-router";
 import type Team from "@/types/Team";
 import type { User } from "@/types/User";
 
-import UserItem from "../components/users/UserItem.vue";
+import UserItem from "@/components/users/UserItem.vue";
 
 export default defineComponent({
   setup() {

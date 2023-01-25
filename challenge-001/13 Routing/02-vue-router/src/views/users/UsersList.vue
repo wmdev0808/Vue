@@ -26,7 +26,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { inject } from "vue";
 
-import UserItem from "../components/users/UserItem.vue";
+import UserItem from "@/components/users/UserItem.vue";
 import type { User } from "@/types/User";
 
 const users = inject<User[]>("users");
