@@ -1,5 +1,6 @@
 <template>
   <h3>{{ counter }}</h3>
+  <p>We do more...</p>
 </template>
 
 <script lang="ts">
@@ -7,9 +8,8 @@ import { defineComponent } from "vue";
 
 export default defineComponent({
   computed: {
-    counter() {
-      // return this.$store.state.counter;
-      return this.$store.getters.finalCounter;
+    counter(): number {
+      return this.$store.getters.normalizedCounter;
     },
   },
 });

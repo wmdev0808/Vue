@@ -21,6 +21,21 @@ const store = createStore<State>({
       state.counter = state.counter + payload.value;
     },
   },
+  getters: {
+    finalCounter(state: State) {
+      return state.counter * 3;
+    },
+    normalizedCounter(_, getters) {
+      const finalCounter = getters.finalCounter;
+      if (finalCounter < 0) {
+        return 0;
+      }
+      if (finalCounter > 100) {
+        return 100;
+      }
+      return finalCounter;
+    },
+  },
 });
 
 app.use(store);
