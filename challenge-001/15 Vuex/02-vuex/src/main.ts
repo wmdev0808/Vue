@@ -5,7 +5,7 @@ import App from "./App.vue";
 
 // import "./assets/main.css";
 
-interface CounterState {
+export interface CounterState {
   counter: number;
 }
 

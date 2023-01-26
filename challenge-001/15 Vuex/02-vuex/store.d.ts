@@ -1,13 +1,11 @@
 import { Store } from "vuex";
 
+import { CounterState } from "@/main";
+
 declare module "@vue/runtime-core" {
   // declare your own store states
-  interface CounterStore {
-    counter: number;
-  }
-
   interface State {
-    numbers: CounterStore;
+    numbers: CounterState;
     isLoggedIn: boolean;
   }
 
