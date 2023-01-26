@@ -9,10 +9,6 @@ import { defineComponent } from "vue";
 import type Product from "@/types/Product";
 import type Cart from "@/types/Cart";
 
-import image01 from "@/assets/images/Books_HD.jpg";
-import image02 from "./assets/images/Tent_at_High_Shelf_Camp.jpg";
-import image03 from "./assets/images/Good_Food_Display.jpg";
-
 export default defineComponent({
   data() {
     return {
@@ -20,7 +16,8 @@ export default defineComponent({
       products: [
         {
           id: "p1",
-          image: image01,
+          image:
+            "https://images.unsplash.com/photo-1671726203394-3fb856bdd8d3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
           title: "Book Collection",
           description:
             "A collection of must-read books. All-time classics included!",
@@ -28,14 +25,16 @@ export default defineComponent({
         },
         {
           id: "p2",
-          image: image02,
+          image:
+            "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=799&q=80",
           title: "Mountain Tent",
           description: "A tent for the ambitious outdoor tourist.",
           price: 129.99,
         },
         {
           id: "p3",
-          image: image03,
+          image:
+            "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80",
           title: "Food Box",
           description:
             "May be partially expired when it arrives but at least it is cheap!",
