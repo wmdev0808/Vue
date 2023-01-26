@@ -42,16 +42,36 @@ export default defineComponent({
       dialogIsVisible: false,
       paraIsVisible: false,
       usersAreVisible: false,
+      enterInterval: undefined as number | undefined,
+      leaveInterval: undefined as number | undefined,
     };
   },
   methods: {
+    enterCancelled(el: HTMLParagraphElement) {
+      console.log(el);
+      clearInterval(this.enterInterval);
+    },
+    leaveCancelled(el: HTMLParagraphElement) {
+      console.log(el);
+      clearInterval(this.leaveInterval);
+    },
     beforeEnter(el: HTMLParagraphElement) {
       console.log("beforeEnter");
       console.log(el);
+      el.style.opacity = "0";
     },
-    enter(el: HTMLParagraphElement) {
+    enter(el: HTMLParagraphElement, done: any) {
       console.log("enter");
       console.log(el);
+      let round = 1;
+      this.enterInterval = setInterval(() => {
+        el.style.opacity = String(round * 0.01);
+        round++;
+        if (round > 100) {
+          clearInterval(this.enterInterval);
+          done();
+        }
+      }, 20);
     },
     afterEnter(el: HTMLParagraphElement) {
       console.log("afterEnter");
@@ -60,10 +80,20 @@ export default defineComponent({
     beforeLeave(el: HTMLParagraphElement) {
       console.log("beforeLeave");
       console.log(el);
+      el.style.opacity = "1";
     },
-    leave(el: HTMLParagraphElement) {
+    leave(el: HTMLParagraphElement, done: any) {
       console.log("leave");
       console.log(el);
+      let round = 1;
+      this.leaveInterval = setInterval(() => {
+        el.style.opacity = String(1 - round * 0.01);
+        round++;
+        if (round > 100) {
+          clearInterval(this.leaveInterval);
+          done();
+        }
+      }, 20);
     },
     afterLeave(el: HTMLParagraphElement) {
       console.log("afterLeave");
@@ -136,35 +166,6 @@ button:active {
 .animate {
   /* transform: translateX(-150px); */
   animation: slide-fade 0.3s ease-out forwards;
-}
-
-.para-enter-from {
-  /* opacity: 0;
-  transform: translateY(-30px); */
-}
-
-.para-enter-active {
-  animation: slide-scale 0.3s ease-out;
-}
-
-.para-enter-to {
-  /* opacity: 1;
-  transform: translateY(0); */
-}
-
-.para-leave-from {
-  /* opacity: 1;
-  transform: translateY(0); */
-}
-
-.para-leave-active {
-  /* transition: all 0.3s ease-in; */
-  animation: slide-scale 0.3s ease-out;
-}
-
-.para-leave-to {
-  /* opacity: 0;
-  transform: translateY(30px); */
 }
 
 .fade-button-enter-from,
