@@ -13,7 +13,12 @@ export default defineComponent({
     //   // this.$store.commit("increment");
     //   this.$store.dispatch("increment");
     // },
-    ...mapActions({
+    // ...mapActions({
+    //   inc: "increment",
+    //   increase: "increase",
+    // }),
+    // ...mapActions(["increment", "increase"]),
+    ...mapActions("numbers", {
       inc: "increment",
       increase: "increase",
     }),

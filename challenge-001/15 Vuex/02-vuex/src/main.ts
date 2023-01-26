@@ -10,6 +10,7 @@ export interface CounterState {
 }
 
 const counterModule: Module<CounterState, State> = {
+  namespaced: true,
   state() {
     return {
       counter: 0,
@@ -33,8 +34,12 @@ const counterModule: Module<CounterState, State> = {
       console.log(`context: => `, context);
       context.commit("increase", payload);
     },
+    login() {},
   },
   getters: {
+    testAuth(_state, _getters, rootState: State, _rootGetters) {
+      return rootState.isLoggedIn;
+    },
     finalCounter(state: CounterState) {
       return state.counter * 3;
     },
