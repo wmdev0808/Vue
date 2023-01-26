@@ -1,5 +1,8 @@
 <template>
   <div class="container">
+    <users-list></users-list>
+  </div>
+  <div class="container">
     <div class="block" :class="{ animate: animatedBlock }"></div>
     <button @click="animateBlock">Animate</button>
   </div>
@@ -119,6 +122,10 @@ export default defineComponent({
     },
   },
 });
+</script>
+
+<script setup lang="ts">
+import UsersList from "./components/UsersList.vue";
 </script>
 
 <style>
