@@ -1,6 +1,6 @@
-import mutations from "./mutations";
-import actions from "./actions";
-import getters from "./getters";
+import coachesMutations from "./mutations";
+import coachesActions from "./actions";
+import coachesGetters from "./getters";
 import type { Module } from "vuex";
 import type { State } from "vue";
 
@@ -26,11 +26,11 @@ const coachesModule: Module<CoachesState, State> = {
       coaches: [
         {
           id: "c1",
-          firstName: "Maximilian",
-          lastName: "Schwarzmüller",
+          firstName: "Paul",
+          lastName: "Li",
           areas: ["frontend", "backend", "career"],
           description:
-            "I'm Maximilian and I've worked as a freelance web developer for years. Let me help you become a developer as well!",
+            "I'm Paul and I've worked as a freelance web developer for years. Let me help you become a developer as well!",
           hourlyRate: 30,
         },
         {
@@ -45,9 +45,9 @@ const coachesModule: Module<CoachesState, State> = {
       ],
     };
   },
-  mutations,
-  actions,
-  getters,
+  mutations: coachesMutations,
+  actions: coachesActions,
+  getters: coachesGetters,
 };
 
 export default coachesModule;

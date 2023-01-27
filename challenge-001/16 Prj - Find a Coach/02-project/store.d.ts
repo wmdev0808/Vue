@@ -1,11 +1,13 @@
 import { Store } from "vuex";
 
-import { CoachesState } from "./src/store/modules/coaches/index";
+import type { CoachesState } from "@/store/modules/coaches/index";
+import type { RequestsState } from "@/store/modules/requests";
 
 declare module "@vue/runtime-core" {
   // declare your own store states
   interface State {
     coaches: CoachesState;
+    requests: RequestsState;
     userId: string;
   }
 

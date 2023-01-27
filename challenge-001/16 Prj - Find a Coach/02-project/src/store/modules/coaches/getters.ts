@@ -3,7 +3,7 @@ import type { GetterTree } from "vuex";
 
 import type { Coach, CoachesState } from ".";
 
-const getters: GetterTree<CoachesState, State> = {
+const coachesGetters: GetterTree<CoachesState, State> = {
   coaches(state: CoachesState) {
     return state.coaches;
   },
@@ -17,4 +17,4 @@ const getters: GetterTree<CoachesState, State> = {
   },
 };
 
-export default getters;
+export default coachesGetters;

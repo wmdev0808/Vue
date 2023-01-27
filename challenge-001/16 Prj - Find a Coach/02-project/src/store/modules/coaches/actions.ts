@@ -3,7 +3,7 @@ import type { ActionTree } from "vuex";
 
 import type { Coach, CoachesState } from ".";
 
-const actions: ActionTree<CoachesState, State> = {
+const coachesActions: ActionTree<CoachesState, State> = {
   registerCoach(context, data: Omit<Coach, "id">) {
     const coachData = {
       ...data,
@@ -14,4 +14,4 @@ const actions: ActionTree<CoachesState, State> = {
   },
 };
 
-export default actions;
+export default coachesActions;
