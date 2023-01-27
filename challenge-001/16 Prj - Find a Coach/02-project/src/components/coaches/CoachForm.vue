@@ -14,7 +14,7 @@
     </div>
     <div class="form-control">
       <label for="rate">Hourly Rate</label>
-      <input type="number" id="rate" v-model.number="rate" />
+      <input type="number" id="rate" v-model.number="hourlyRate" />
     </div>
     <div class="form-control">
       <h3>Areas of Expertise</h3>
@@ -40,26 +40,27 @@ import type { Area } from "@/store/modules/coaches";
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  emits: ["save-data"],
   data() {
     return {
       firstName: "",
       lastName: "",
       description: "",
-      rate: 0,
+      hourlyRate: 0,
       areas: [] as Area[],
     };
   },
   methods: {
     submitForm() {
       const formData = {
-        first: this.firstName,
-        last: this.lastName,
-        desc: this.description,
-        rate: this.rate,
+        firstName: this.firstName,
+        lastName: this.lastName,
+        description: this.description,
+        hourlyRate: this.hourlyRate,
         areas: this.areas,
       };
 
-      console.log(formData);
+      this.$emit("save-data", formData);
     },
   },
 });

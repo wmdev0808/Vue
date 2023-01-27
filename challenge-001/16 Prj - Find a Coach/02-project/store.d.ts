@@ -6,6 +6,7 @@ declare module "@vue/runtime-core" {
   // declare your own store states
   interface State {
     coaches: CoachesState;
+    userId: string;
   }
 
   // provide typings for `this.$store`
