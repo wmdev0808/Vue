@@ -27,7 +27,10 @@ const coachesActions: ActionTree<CoachesState, State> = {
     });
   },
 
-  async loadCoaches(context) {
+  async loadCoaches(context, payload: { forceRefresh: boolean }) {
+    if (!payload.forceRefresh && !context.getters.shouldUpdate) {
+      return;
+    }
     const response = await fetch(
       `${import.meta.env.VITE_DB_BASE_URL}/coaches.json`
     );
@@ -53,6 +56,7 @@ const coachesActions: ActionTree<CoachesState, State> = {
     }
 
     context.commit("setCoaches", coaches);
+    context.commit("setFetchTimestamp");
   },
 };
 

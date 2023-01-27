@@ -15,6 +15,14 @@ const coachesGetters: GetterTree<CoachesState, State> = {
     const userId = rootGetters.userId as string;
     return coaches.some((coach) => coach.id === userId);
   },
+  shouldUpdate(state) {
+    const lastFetch = state.lastFetch;
+    if (!lastFetch) {
+      return true;
+    }
+    const currentTimeStamp = new Date().getTime();
+    return (currentTimeStamp - lastFetch) / 1000 > 60;
+  },
 };
 
 export default coachesGetters;

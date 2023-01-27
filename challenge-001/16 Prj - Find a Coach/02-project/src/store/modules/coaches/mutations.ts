@@ -8,6 +8,9 @@ const coachesMutations: MutationTree<CoachesState> = {
   setCoaches(state: CoachesState, payload: Coach[]) {
     state.coaches = payload;
   },
+  setFetchTimestamp(state) {
+    state.lastFetch = new Date().getTime();
+  },
 };
 
 export default coachesMutations;

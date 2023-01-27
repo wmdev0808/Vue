@@ -17,6 +17,7 @@ export interface Coach {
 
 export interface CoachesState {
   coaches: Coach[];
+  lastFetch?: number;
 }
 
 const coachesModule: Module<CoachesState, State> = {
