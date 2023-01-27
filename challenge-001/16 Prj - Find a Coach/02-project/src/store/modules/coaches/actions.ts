@@ -4,13 +4,27 @@ import type { ActionTree } from "vuex";
 import type { Coach, CoachesState } from ".";
 
 const coachesActions: ActionTree<CoachesState, State> = {
-  registerCoach(context, data: Omit<Coach, "id">) {
-    const coachData = {
-      ...data,
-      id: context.rootGetters.userId,
-    };
+  async registerCoach(context, coachData: Omit<Coach, "id">) {
+    const userId = context.rootGetters.userId;
 
-    context.commit("registerCoach", coachData);
+    const response = await fetch(
+      `${import.meta.env.VITE_DB_BASE_URL}/coaches/${userId}.json`,
+      {
+        method: "PUT",
+        body: JSON.stringify(coachData),
+      }
+    );
+
+    // const responseData = await response.json()
+
+    if (!response.ok) {
+      // error ...
+    }
+
+    context.commit("registerCoach", {
+      ...coachData,
+      id: userId,
+    });
   },
 };
 
