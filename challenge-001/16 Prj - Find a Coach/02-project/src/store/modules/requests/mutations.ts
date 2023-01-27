@@ -5,6 +5,9 @@ const requestsMutations: MutationTree<RequestsState> = {
   addRequest(state, payload: CoachRequest) {
     state.requests.push(payload);
   },
+  setRequests(state, payload: CoachRequest[]) {
+    state.requests = payload;
+  },
 };
 
 export default requestsMutations;
