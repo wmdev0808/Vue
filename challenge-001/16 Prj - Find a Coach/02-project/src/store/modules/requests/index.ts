@@ -1,7 +1,9 @@
-import requestsMutations from "./mutations";
-import requestsActions from "./actions";
 import type { Module } from "vuex";
 import type { State } from "vue";
+
+import requestsMutations from "./mutations";
+import requestsActions from "./actions";
+import requestsGetters from "./getters";
 
 export interface CoachRequest {
   id: string;
@@ -23,6 +25,7 @@ const requestsModule: Module<RequestsState, State> = {
   },
   mutations: requestsMutations,
   actions: requestsActions,
+  getters: requestsGetters,
 };
 
 export default requestsModule;
