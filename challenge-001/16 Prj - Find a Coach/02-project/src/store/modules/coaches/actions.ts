@@ -5,10 +5,13 @@ import type { Coach, CoachesState } from ".";
 
 const coachesActions: ActionTree<CoachesState, State> = {
   async registerCoach(context, coachData: Omit<Coach, "id">) {
-    const userId = context.rootGetters.userId;
+    const userId = context.rootGetters.userId as string;
+    const token = context.rootGetters.token as string;
 
     const response = await fetch(
-      `${import.meta.env.VITE_DB_BASE_URL}/coaches/${userId}.json`,
+      `${
+        import.meta.env.VITE_DB_BASE_URL
+      }/coaches/${userId}.json?auth=${token}`,
       {
         method: "PUT",
         body: JSON.stringify(coachData),

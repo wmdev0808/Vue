@@ -33,9 +33,12 @@ const requestsActions: ActionTree<RequestsState, State> = {
     context.commit("addRequest", newRequest);
   },
   async fetchRequests(context) {
-    const coachId = context.rootGetters.userId;
+    const coachId = context.rootGetters.userId as string;
+    const token = context.rootGetters.token as string;
     const response = await fetch(
-      `${import.meta.env.VITE_DB_BASE_URL}/requests/${coachId}.json`
+      `${
+        import.meta.env.VITE_DB_BASE_URL
+      }/requests/${coachId}.json?auth=${token}`
     );
     const responseData = await response.json();
 
