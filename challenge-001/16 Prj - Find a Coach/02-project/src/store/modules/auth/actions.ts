@@ -28,9 +28,9 @@ const authActions: ActionTree<AuthState, State> = {
     const responseData = await response.json();
 
     if (!response.ok) {
-      console.log(responseData);
+      console.log(`response data: => `, responseData);
       const error = new Error(
-        responseData.message || "Failed to authenticate."
+        responseData.error.message || "Failed to authenticate."
       );
       throw error;
     }
