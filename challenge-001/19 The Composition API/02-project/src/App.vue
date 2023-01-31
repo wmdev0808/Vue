@@ -10,6 +10,10 @@
     <h2>{{ userName }}</h2>
     <h3>{{ age }}</h3>
     <button @click="setAge">Change Age</button>
+    <div>
+      <input type="text" placeholder="First Name" @input="setFirstName" />
+      <input type="text" placeholder="Last Name" @input="setLastName" />
+    </div>
   </section>
 </template>
 
@@ -65,13 +69,27 @@ setTimeout(function () {
 </script> -->
 
 <script setup lang="ts">
-import { ref, type Ref } from "vue";
+import { computed, ref, type Ref } from "vue";
 
-const uName: Ref<string> = ref("Paul");
+// const uName: Ref<string> = ref("Paul");
+const firstName: Ref<string> = ref("");
+const lastName: Ref<string> = ref("");
 const uAge: Ref<number> = ref(31);
+
+const uName = computed<string>(function () {
+  return firstName.value + " " + lastName.value;
+});
 
 function setNewAge() {
   uAge.value = 33;
+}
+
+function setFirstName(event: Event) {
+  firstName.value = (event.target as HTMLInputElement).value;
+}
+
+function setLastName(event: Event) {
+  lastName.value = (event.target as HTMLInputElement).value;
 }
 
 const userName = uName;
