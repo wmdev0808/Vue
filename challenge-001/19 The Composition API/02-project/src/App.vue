@@ -43,10 +43,15 @@
 
 <template>
   <section class="container">
-    <user-data
+    <!-- <user-data
       :first-name="firstName"
       :last-name="lastName"
       :age="age"
+      @save-data="logEmittedData"
+    ></user-data> -->
+    <user-data
+      :first-name="firstName"
+      :last-name="lastName"
       @save-data="logEmittedData"
     ></user-data>
     <button @click="setAge">Change Age</button>
