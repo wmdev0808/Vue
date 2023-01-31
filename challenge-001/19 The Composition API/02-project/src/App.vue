@@ -112,7 +112,7 @@ setTimeout(function () {
 <script setup lang="ts">
 import { computed, ref, watch, type Ref } from "vue";
 
-import UserData from "./components/UserData.vue";
+import UserData, { type User } from "./components/UserData.vue";
 
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
@@ -144,8 +144,8 @@ function setLastName(event: Event) {
   lastName.value = lastNameInput.value!.value;
 }
 
-function logEmittedData(id: number) {
-  console.log(id);
+function logEmittedData(user: User) {
+  console.log(user);
 }
 
 const userName = uName;

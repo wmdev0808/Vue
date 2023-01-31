@@ -6,7 +6,7 @@
 <script setup lang="ts">
 import { computed, onMounted } from "vue";
 
-interface User {
+export interface User {
   firstName: string;
   lastName: string;
   age: number;
