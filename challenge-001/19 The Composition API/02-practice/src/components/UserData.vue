@@ -15,7 +15,7 @@ import {
   onUpdated,
 } from "vue";
 
-import { userAgeInjectionKey } from "@/injectionKeys";
+import { userAgeInjectionKey } from "../injectionKeys";
 
 export interface User {
   firstName: string;

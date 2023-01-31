@@ -118,7 +118,7 @@ setTimeout(function () {
 import { computed, provide, ref, watch, type Ref } from "vue";
 
 import UserData, { type User } from "./components/UserData.vue";
-import { userAgeInjectionKey } from "@/injectionKeys";
+import { userAgeInjectionKey } from "./injectionKeys";
 
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
