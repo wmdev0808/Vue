@@ -24,10 +24,13 @@
 </template>
 
 <script setup lang="ts">
-import { addProductInjectionKey } from "@/injectionKeys";
 import { ref, inject } from "vue";
+import { useRouter } from "vue-router";
+
+import { addProductInjectionKey } from "@/injectionKeys";
 
 const addProduct = inject(addProductInjectionKey)!;
+const router = useRouter();
 
 const enteredTitle = ref<string>("");
 const enteredPrice = ref<number | null>(null);
@@ -39,6 +42,7 @@ function submitForm() {
     description: enteredDescription.value,
     price: enteredPrice.value,
   });
+  router.push("/products");
 }
 </script>
 

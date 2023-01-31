@@ -7,11 +7,24 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, inject } from "vue";
+import { useRoute } from "vue-router";
 
-const title = ref<string>("");
-const price = ref<number | null>(null);
-const description = ref<string>("");
+import type Product from "@/types/Product";
+import { productsInjectionKey } from "@/injectionKeys";
+
+const products = inject<Product[]>(productsInjectionKey)!;
+
+const route = useRoute();
+console.log(`route: => `, route);
+
+const selectedProduct = computed<Product>(
+  () => products.find((product) => product.id === route.params.pid)!
+);
+
+const title = computed(() => selectedProduct.value.title);
+const price = computed(() => selectedProduct.value.price);
+const description = computed(() => selectedProduct.value.description);
 </script>
 
 <style scoped>
