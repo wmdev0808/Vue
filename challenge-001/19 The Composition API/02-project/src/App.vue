@@ -5,8 +5,11 @@
 </template> -->
 <template>
   <section class="container">
-    <h2>{{ user.name }}</h2>
-    <h3>{{ user.age }}</h3>
+    <!-- <h2>{{ user.name }}</h2>
+    <h3>{{ user.age }}</h3> -->
+    <h2>{{ userName }}</h2>
+    <h3>{{ age }}</h3>
+    <button @click="setAge">Change Age</button>
   </section>
 </template>
 
@@ -42,7 +45,7 @@ setTimeout(function () {
 }, 2000);
 </script> -->
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { reactive } from "vue";
 
 interface User {
@@ -59,6 +62,21 @@ setTimeout(function () {
   user.name = "Pa";
   user.age = 32;
 }, 2000);
+</script> -->
+
+<script setup lang="ts">
+import { ref, type Ref } from "vue";
+
+const uName: Ref<string> = ref("Paul");
+const uAge: Ref<number> = ref(31);
+
+function setNewAge() {
+  uAge.value = 33;
+}
+
+const userName = uName;
+const age = uAge;
+const setAge = setNewAge;
 </script>
 
 <style>
