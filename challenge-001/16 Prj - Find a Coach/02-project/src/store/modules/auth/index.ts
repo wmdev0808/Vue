@@ -8,7 +8,8 @@ import authGetters from "./getters";
 export interface AuthState {
   userId: string | null;
   token: string | null;
-  tokenExpiration: string | null;
+  tokenExpiration?: string | null;
+  didAutoLogout?: boolean;
 }
 
 const authModule: Module<AuthState, State> = {
@@ -17,6 +18,7 @@ const authModule: Module<AuthState, State> = {
       userId: null,
       token: null,
       tokenExpiration: null,
+      didAutoLogout: false,
     };
   },
   mutations: authMutations,

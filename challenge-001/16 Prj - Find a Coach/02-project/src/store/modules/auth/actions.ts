@@ -9,6 +9,8 @@ export interface AuthPayload {
   mode: "signup" | "login";
 }
 
+let timer: number | undefined;
+
 const authActions: ActionTree<AuthState, State> = {
   async login(context, payload: AuthPayload) {
     return context.dispatch("auth", {
@@ -52,33 +54,60 @@ const authActions: ActionTree<AuthState, State> = {
       throw error;
     }
 
+    const expiresIn = +responseData.expiresIn * 1000;
+    // const expiresIn = 9000;
+    const expirationDate = new Date().getTime() + expiresIn;
+
     localStorage.setItem("token", responseData.idToken);
     localStorage.setItem("userId", responseData.localId);
+    localStorage.setItem("tokenExpiration", expirationDate.toString());
+
+    timer = setTimeout(function () {
+      context.dispatch("autoLogout");
+    }, expiresIn);
 
     context.commit("setUser", {
       token: responseData.idToken,
       userId: responseData.localId,
-      tokenExpiration: responseData.expiresIn,
     });
   },
   tryLogin(context) {
     const token = localStorage.getItem("token");
     const userId = localStorage.getItem("userId");
+    const tokenExpiration = localStorage.getItem("tokenExpiration");
+
+    const expiresIn = +(tokenExpiration ?? 0) - new Date().getTime();
+
+    if (expiresIn < 0) {
+      return;
+    }
+
+    timer = setTimeout(function () {
+      context.dispatch("autoLogout");
+    }, expiresIn);
 
     if (token && userId) {
       context.commit("setUser", {
         token: token,
         userId: userId,
-        tokenExpiration: null,
       });
     }
   },
   logout(context) {
+    localStorage.removeItem("token");
+    localStorage.removeItem("userId");
+    localStorage.removeItem("tokenExpiration");
+
+    clearTimeout(timer);
     context.commit("setUser", {
       token: null,
       userId: null,
-      tokenExpiration: null,
     });
+    context.commit("setAutoLogout", false);
+  },
+  autoLogout(context) {
+    context.dispatch("logout");
+    context.commit("setAutoLogout", true);
   },
 };
 

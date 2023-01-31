@@ -11,8 +11,20 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
+  computed: {
+    didAutoLogout() {
+      return this.$store.getters.didAutoLogout as boolean;
+    },
+  },
   created() {
     this.$store.dispatch("tryLogin");
+  },
+  watch: {
+    didAutoLogout(currentValue: boolean, oldValue: boolean) {
+      if (currentValue && currentValue !== oldValue) {
+        this.$router.replace("/coaches");
+      }
+    },
   },
 });
 </script>

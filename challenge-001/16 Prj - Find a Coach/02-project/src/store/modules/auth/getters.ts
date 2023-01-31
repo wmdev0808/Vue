@@ -12,7 +12,10 @@ const authGetters: GetterTree<AuthState, State> = {
   },
   isAuthenticated(state: AuthState) {
     return !!state.token;
-  }
+  },
+  didAutoLogout(state: AuthState) {
+    return state.didAutoLogout;
+  },
 };
 
 export default authGetters;

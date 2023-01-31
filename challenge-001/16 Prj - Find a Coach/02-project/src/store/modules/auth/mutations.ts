@@ -7,6 +7,9 @@ const coachesMutations: MutationTree<AuthState> = {
     state.userId = payload.userId;
     state.tokenExpiration = payload.tokenExpiration;
   },
+  setAutoLogout(state: AuthState, payload: boolean) {
+    state.didAutoLogout = payload;
+  },
 };
 
 export default coachesMutations;
