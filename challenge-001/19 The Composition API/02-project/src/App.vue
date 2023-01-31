@@ -71,7 +71,7 @@ setTimeout(function () {
 </script> -->
 
 <script setup lang="ts">
-import { computed, ref, type Ref } from "vue";
+import { computed, ref, watch, type Ref } from "vue";
 
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
@@ -80,6 +80,13 @@ const uAge: Ref<number> = ref(31);
 
 const uName = computed<string>(function () {
   return firstName.value + " " + lastName.value;
+});
+
+watch([uAge, uName], function (newValues, oldValues) {
+  console.log("Old age: " + oldValues[0]);
+  console.log("New age: " + newValues[0]);
+  console.log("Old name: " + oldValues[1]);
+  console.log("New name: " + newValues[1]);
 });
 
 function setNewAge() {
