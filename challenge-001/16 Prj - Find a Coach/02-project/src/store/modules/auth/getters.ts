@@ -10,6 +10,9 @@ const authGetters: GetterTree<AuthState, State> = {
   token(state: AuthState) {
     return state.token;
   },
+  isAuthenticated(state: AuthState) {
+    return !!state.token;
+  }
 };
 
 export default authGetters;
