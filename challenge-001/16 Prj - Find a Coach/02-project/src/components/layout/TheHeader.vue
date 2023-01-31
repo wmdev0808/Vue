@@ -34,6 +34,7 @@ export default defineComponent({
   methods: {
     logout() {
       this.$store.dispatch("logout");
+      this.$router.replace("/coaches");
     },
   },
 });
