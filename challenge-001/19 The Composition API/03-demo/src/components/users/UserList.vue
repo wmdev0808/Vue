@@ -71,7 +71,7 @@ function sort(mode: "asc" | "desc") {
   sorting.value = mode;
 }
 
-watch(enteredSearchTerm, (newVal, _oldVal) => {
+watch(enteredSearchTerm, (newVal) => {
   setTimeout(() => {
     if (newVal === enteredSearchTerm.value) {
       activeSearchTerm.value = newVal;

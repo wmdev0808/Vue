@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{ searchTerm: string }>();
+defineProps<{ searchTerm: string }>();
 const emit = defineEmits<{ (e: "search", searchTerm: string): void }>();
 
 function search(event: Event) {

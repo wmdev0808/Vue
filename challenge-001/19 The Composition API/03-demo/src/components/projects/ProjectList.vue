@@ -59,7 +59,7 @@ watch(enteredSearchTerm, (newVal) => {
 
 watch(
   () => props.user,
-  (_newValue) => {
+  () => {
     enteredSearchTerm.value = "";
   }
 );
