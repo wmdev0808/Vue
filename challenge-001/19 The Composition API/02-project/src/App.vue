@@ -4,7 +4,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import { ref, type Ref } from "vue";
 
 export default {
@@ -23,6 +23,17 @@ export default {
   //   };
   // },
 };
+</script> -->
+
+<script setup lang="ts">
+import { ref, type Ref } from "vue";
+
+const uName: Ref<string> = ref("Paul");
+const userName = uName;
+
+setTimeout(function () {
+  uName.value = "Pa";
+}, 2000);
 </script>
 
 <style>
