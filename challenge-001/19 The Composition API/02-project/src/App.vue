@@ -47,6 +47,7 @@
       :first-name="firstName"
       :last-name="lastName"
       :age="age"
+      @save-data="logEmittedData"
     ></user-data>
     <button @click="setAge">Change Age</button>
     <div>
@@ -141,6 +142,10 @@ function setNewAge() {
 function setLastName(event: Event) {
   // lastName.value = (event.target as HTMLInputElement).value;
   lastName.value = lastNameInput.value!.value;
+}
+
+function logEmittedData(id: number) {
+  console.log(id);
 }
 
 const userName = uName;

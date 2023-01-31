@@ -4,7 +4,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 
 interface User {
   firstName: string;
@@ -17,6 +17,9 @@ const uName = computed(function () {
   return props.firstName + " " + props.lastName;
 });
 
+const emit = defineEmits<{ (e: "save-data", user: User): void }>();
+
+onMounted(() => emit("save-data", props));
 const userName = uName;
 // computed: {
 //   userName() {
