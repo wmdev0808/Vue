@@ -868,11 +868,30 @@
 
 ### 18.1. Module Introduction
 
+- From Development to Production
+
 ### 18.2. What To Deploy?
+
+- Vue apps `run in the browser` - with browser-side JavaScript code
+
+  - `HTML` (just one HTML file)
+  - `CSS` (often no separate files)
+  - `JavaScript` (built by Vue project setup)
+
+- A `static` web app / website
+- A static websites hosting provider is needed
 
 ### 18.3. Optimization: Using Asynchronous Components
 
+- Optimize Your Code
+  - Test for Errors
+  - Refactor & "Don't repeat yourself"
+  - Consider using `Asynchronous Components`
+
 ### Note: Async Components & Routing
+
+- Implecations:
+  - We don't always need a `Dialog` component, so it can be lazily loaded
 
 ### 18.4. Building the Project For Production
 
