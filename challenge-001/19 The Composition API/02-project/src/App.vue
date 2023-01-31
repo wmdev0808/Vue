@@ -110,15 +110,18 @@ setTimeout(function () {
 </script> -->
 
 <script setup lang="ts">
-import { computed, ref, watch, type Ref } from "vue";
+import { computed, provide, ref, watch, type Ref } from "vue";
 
 import UserData, { type User } from "./components/UserData.vue";
+import { userAgeInjectionKey } from "@/injectionKeys";
 
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
 const lastName: Ref<string> = ref("");
 const lastNameInput: Ref<HTMLInputElement | null> = ref(null);
 const uAge: Ref<number> = ref(31);
+
+provide(userAgeInjectionKey, uAge);
 
 const uName = computed<string>(function () {
   return firstName.value + " " + lastName.value;
