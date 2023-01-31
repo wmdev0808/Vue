@@ -3,18 +3,54 @@
     <h2>{{ userName }}</h2>
   </section>
 </template> -->
-<template>
+
+<!-- <template>
   <section class="container">
-    <!-- <h2>{{ user.name }}</h2>
-    <h3>{{ user.age }}</h3> -->
+    <h2>{{ user.name }}</h2>
+    <h3>{{ user.age }}</h3>    
+    <button @click="setAge">Change Age</button>
+    <div>
+      <input type="text" placeholder="First Name" @input="setFirstName" />
+      <input type="text" placeholder="Last Name" @input="setLastName" />       
+    </div>
+  </section>
+</template> -->
+
+<!-- <template>
+  <section class="container">
     <h2>{{ userName }}</h2>
     <h3>{{ age }}</h3>
     <button @click="setAge">Change Age</button>
     <div>
-      <!-- <input type="text" placeholder="First Name" @input="setFirstName" />
-      <input type="text" placeholder="Last Name" @input="setLastName" /> -->
       <input type="text" placeholder="First Name" v-model="firstName" />
-      <!-- <input type="text" placeholder="Last Name" v-model="lastName" /> -->
+      <input type="text" placeholder="Last Name" v-model="lastName" />
+    </div>
+  </section>
+</template> -->
+
+<!-- <template>
+  <section class="container">
+    <h2>{{ userName }}</h2>
+    <h3>{{ age }}</h3>
+    <button @click="setAge">Change Age</button>
+    <div>
+      <input type="text" placeholder="First Name" v-model="firstName" />
+      <input type="text" placeholder="Last Name" ref="lastNameInput" />
+      <button @click="setLastName">Set Last Name</button>
+    </div>
+  </section>
+</template> -->
+
+<template>
+  <section class="container">
+    <user-data
+      :first-name="firstName"
+      :last-name="lastName"
+      :age="age"
+    ></user-data>
+    <button @click="setAge">Change Age</button>
+    <div>
+      <input type="text" placeholder="First Name" v-model="firstName" />
       <input type="text" placeholder="Last Name" ref="lastNameInput" />
       <button @click="setLastName">Set Last Name</button>
     </div>
@@ -75,6 +111,8 @@ setTimeout(function () {
 <script setup lang="ts">
 import { computed, ref, watch, type Ref } from "vue";
 
+import UserData from "./components/UserData.vue";
+
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
 const lastName: Ref<string> = ref("");
@@ -96,9 +134,9 @@ function setNewAge() {
   uAge.value = 33;
 }
 
-function setFirstName(event: Event) {
-  firstName.value = (event.target as HTMLInputElement).value;
-}
+// function setFirstName(event: Event) {
+//   firstName.value = (event.target as HTMLInputElement).value;
+// }
 
 function setLastName(event: Event) {
   // lastName.value = (event.target as HTMLInputElement).value;
