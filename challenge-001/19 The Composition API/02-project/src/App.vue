@@ -14,7 +14,9 @@
       <!-- <input type="text" placeholder="First Name" @input="setFirstName" />
       <input type="text" placeholder="Last Name" @input="setLastName" /> -->
       <input type="text" placeholder="First Name" v-model="firstName" />
-      <input type="text" placeholder="Last Name" v-model="lastName" />
+      <!-- <input type="text" placeholder="Last Name" v-model="lastName" /> -->
+      <input type="text" placeholder="Last Name" ref="lastNameInput" />
+      <button @click="setLastName">Set Last Name</button>
     </div>
   </section>
 </template>
@@ -76,6 +78,7 @@ import { computed, ref, watch, type Ref } from "vue";
 // const uName: Ref<string> = ref("Paul");
 const firstName: Ref<string> = ref("");
 const lastName: Ref<string> = ref("");
+const lastNameInput: Ref<HTMLInputElement | null> = ref(null);
 const uAge: Ref<number> = ref(31);
 
 const uName = computed<string>(function () {
@@ -98,7 +101,8 @@ function setFirstName(event: Event) {
 }
 
 function setLastName(event: Event) {
-  lastName.value = (event.target as HTMLInputElement).value;
+  // lastName.value = (event.target as HTMLInputElement).value;
+  lastName.value = lastNameInput.value!.value;
 }
 
 const userName = uName;
