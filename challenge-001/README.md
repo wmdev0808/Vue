@@ -895,7 +895,48 @@
 
 ### 18.4. Building the Project For Production
 
+- Creating Deployable Resources
+  - Vue Project
+    - Custom HTML + CSS + JS Files
+      - Just deploy!
+    - More Complex Project (e.g. created with CLI)
+      - Optimize Your Code
+      - Build + automatically optimize code
+      - Deploy generated files
+
 ### 18.5. Deploying a Vue App
+
+- Firebase Hosting
+
+  - 1. Install Firebase CLI
+
+    ```bash
+    $ npm install -g firebase-tools
+    ```
+
+  - 2. Initialize your project
+
+    - Sign in to Google
+
+      ```bash
+      $ firebase login
+      ```
+
+    - Initiate your project
+
+      ```bash
+      $ firebase init
+      ```
+
+  - 3. Deploy to Firebase Hosting
+
+    - When you’re ready, deploy your web app
+
+      - Put your static files (e.g., HTML, CSS, JS) in your app’s deploy directory (the default is “public”). Then, run this command from your app’s root directory:
+
+      ```bash
+      $ firebase deploy
+      ```
 
 ## 19. The Component API - Replacing the Options API
 
