@@ -1,6 +1,12 @@
-<template>
+<!-- <template>
   <section class="container">
     <h2>{{ userName }}</h2>
+  </section>
+</template> -->
+<template>
+  <section class="container">
+    <h2>{{ user.name }}</h2>
+    <h3>{{ user.age }}</h3>
   </section>
 </template>
 
@@ -25,7 +31,7 @@ export default {
 };
 </script> -->
 
-<script setup lang="ts">
+<!-- <script setup lang="ts">
 import { ref, type Ref } from "vue";
 
 const uName: Ref<string> = ref("Paul");
@@ -33,6 +39,25 @@ const userName = uName;
 
 setTimeout(function () {
   uName.value = "Pa";
+}, 2000);
+</script> -->
+
+<script setup lang="ts">
+import { reactive } from "vue";
+
+interface User {
+  name: string;
+  age: number;
+}
+
+const user: User = reactive({
+  name: "Paul",
+  age: 31,
+});
+
+setTimeout(function () {
+  user.name = "Pa";
+  user.age = 32;
 }, 2000);
 </script>
 
