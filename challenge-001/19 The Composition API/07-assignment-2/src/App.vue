@@ -19,7 +19,7 @@
   </section>
 </template>
 
-<script lang="ts">
+<!-- <script lang="ts">
 import { defineComponent } from "vue";
 
 export default defineComponent({
@@ -48,6 +48,27 @@ export default defineComponent({
     },
   },
 });
+</script> -->
+<script setup lang="ts">
+import { computed, ref, watch } from "vue";
+
+const availableFunds = ref<number>(100);
+const currentExpenses = ref<number>(0);
+const enteredExpense = ref<number>(0);
+
+const remainingFunds = computed<number>(
+  () => availableFunds.value - currentExpenses.value
+);
+
+watch(remainingFunds, (newValue: number) => {
+  if (newValue < 0) {
+    alert("You are broke!");
+  }
+});
+
+function addExpense() {
+  currentExpenses.value += enteredExpense.value;
+}
 </script>
 
 <style>
