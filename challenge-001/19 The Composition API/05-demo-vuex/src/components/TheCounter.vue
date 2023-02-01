@@ -3,5 +3,12 @@
 </template>
 
 <script setup lang="ts">
-const counter = 0;
+import { computed } from "vue";
+import { useStore } from "vuex";
+
+import type { AppState } from "@/store";
+
+const store = useStore<AppState>();
+
+const counter = computed<number>(() => store.getters.counter as number);
 </script>

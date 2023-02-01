@@ -1,10 +1,14 @@
 import { createStore } from "vuex";
 
-const store = createStore({
+export interface AppState {
+  counter: number;
+}
+
+const store = createStore<AppState>({
   state() {
     return {
       counter: 0,
-    };
+    } as AppState;
   },
   mutations: {
     increment(state) {

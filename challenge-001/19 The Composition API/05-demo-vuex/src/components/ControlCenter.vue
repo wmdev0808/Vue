@@ -3,5 +3,13 @@
 </template>
 
 <script setup lang="ts">
-function inc() {}
+import { useStore } from "vuex";
+
+import type { AppState } from "@/store";
+
+const store = useStore<AppState>();
+
+function inc() {
+  store.dispatch("increment");
+}
 </script>
