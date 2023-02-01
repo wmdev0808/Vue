@@ -1022,6 +1022,11 @@
 
 ### 20.1. Module Introduction
 
+- Reusing Code in the Options & Composition API
+  - Reusing Things - An Overview
+  - Mixins (Options API)
+  - Custom Composition Functions (Composition API)
+
 ### 20.2. Reusability Concepts
 
 ### 20.3. Using Mixins
