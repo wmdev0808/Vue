@@ -1119,6 +1119,8 @@
 
 ### 22.4. The New Composition API (Optional!)
 
+- What is the `Composition API`?
+
 ## 23. Getting Started [VUE2]
 
 ### 23.1. Module Introduction
