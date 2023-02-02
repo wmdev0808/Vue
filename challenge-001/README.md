@@ -1112,6 +1112,11 @@
 
 ### 22.3. Vue 3: New Features
 
+- `Teleport`
+
+- `Fragments`
+  - In Vue 3, you can put multiple sibling elements in component templates
+
 ### 22.4. The New Composition API (Optional!)
 
 ## 23. Getting Started [VUE2]
