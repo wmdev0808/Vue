@@ -1029,6 +1029,24 @@
 
 ### 20.2. Reusability Concepts
 
+- What Can We Reuse?
+
+  - Components
+    - HTML Structure + Styling
+    - Logic & Events
+
+- Reusing Markup & DOM-related Logic
+
+  - Components
+    - Encapsulated Tempalte & Logic
+    - Props & Custom Events
+    - Slots
+
+- Reusing Logic Across Components (Options API)
+  - `UserList` and `ProjectList` Components can reuse a `mixin`
+    - Mixin
+      - Search Method + Data + Watcher
+
 ### 20.3. Using Mixins
 
 ### 20.4. Understanding Mixin Merging
@@ -1036,6 +1054,18 @@
 ### 20.5. Global Mixins
 
 ### 20.6. Disadvantages of Mixins
+
+- What is the `Composition API`?
+
+  - But you `might face two main limitations/issues` when building bigger Vue apps.
+    - Code that belongs together logically is split up across multiple options(data, methods, computed)
+    - Re-using logic across components can be tricky or cumbersome
+
+- Reusing Logic Across Components (Composition API)
+
+  - `UserList` Component and `ProjectList` Component can reuse the below:
+    - `Search Method + Data + Watcher` using:
+    - `Custom Composition Functions`
 
 ### 20.7. Custom Hooks / Composables & The Composition API
 
@@ -1058,6 +1088,25 @@
 ## 22. Vue 2 to Vue 3 Migration
 
 ### 22.1. Vue 3 - Overview
+
+- Vue 3 Update
+
+  - What's New? What Changed?
+
+- Vue 3 - What Changed?
+
+  - Vue instances/apps are now created with `createApp()`
+  - `data` must now always be a method
+  - Components, directives & third-party modules are registered on `app` instad of Vue global object
+  - `Transitions`: `v-enter` is now `v-enter-from`
+  - `Vue Router`: Router is now created with `createRouter()`, transitions work differently
+  - `Vuex`: Store is now created with `createStore()`
+
+- Vue 3 - What's New?
+  - `<teleport>` Component
+  - Fragments
+  - Composition API `may` be used to replace Options API
+  - Vue was internally re-written with TypeScript => Better TypeScript support (optional!)
 
 ### 22.2. Important Changes & Migration Steps
 
