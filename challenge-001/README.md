@@ -1121,6 +1121,39 @@
 
 - What is the `Composition API`?
 
+  - Thus far, we used the `Options API` for building Vue apps / components.
+
+    ```js
+    {
+      data() {
+        return {name: 'Paul'};
+      },
+      methods: {
+        ...
+      }
+    }
+
+    ```
+
+    - This approach is absolutely fine and you can stick to it!
+
+  - But you `might face two main limitations/issues` when building bigger Vue apps.
+
+    - 1. Code that `belongs together logically` is split up across multiple options (data, methods, computed)
+    - 2. `Re-using logic` across components can `be tricky or cumbersome`
+
+  - Composition API to the rescue
+
+    ```js
+    {
+      setup() {
+        const name = ref('Max');
+        function doSmth() {...}
+        return { name, doSmth };
+      }
+    }
+    ```
+
 ## 23. Getting Started [VUE2]
 
 ### 23.1. Module Introduction
