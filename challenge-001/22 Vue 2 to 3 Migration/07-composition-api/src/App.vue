@@ -1,47 +1,45 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+  <course-goals></course-goals>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<script setup lang="ts">
+import CourseGoals from "./components/CourseGoals.vue";
+</script>
+
+<style>
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+html {
+  font-family: sans-serif;
 }
 
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
+body {
+  margin: 0;
+}
 
-  .logo {
-    margin: 0 2rem 0 0;
-  }
+.container {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  max-width: 25rem;
+  margin: 3rem auto;
+  padding: 1rem;
+  border-radius: 12px;
+}
 
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+button {
+  background-color: #1f001f;
+  border: 1px solid #1f001f;
+  color: white;
+  font: inherit;
+  cursor: pointer;
+  padding: 0.5rem 1.5rem;
+  margin-right: 1rem;
+}
+
+button:hover,
+button:active {
+  background-color: #750a75;
+  border-color: #750a75;
 }
 </style>
