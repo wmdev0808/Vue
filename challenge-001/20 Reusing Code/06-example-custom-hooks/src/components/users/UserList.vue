@@ -26,11 +26,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, toRefs } from "vue";
+import { toRefs } from "vue";
 
 import type User from "@/types/User";
 import UserItem from "./UserItem.vue";
 import useSearch from "@/hooks/search";
+import useSort from "@/hooks/sort";
 
 const props = defineProps<{ users: User[] }>();
 
@@ -44,28 +45,11 @@ const {
   updateSearch,
 } = useSearch<User>(users, "fullName");
 
-const sorting = ref<"asc" | "desc" | null>(null);
-
-const displayedUsers = computed<User[]>(function () {
-  if (!sorting.value) {
-    return availableUsers.value;
-  }
-  return availableUsers.value.slice().sort((u1, u2) => {
-    if (sorting.value === "asc" && u1.fullName > u2.fullName) {
-      return 1;
-    } else if (sorting.value === "asc") {
-      return -1;
-    } else if (sorting.value === "desc" && u1.fullName > u2.fullName) {
-      return -1;
-    } else {
-      return 1;
-    }
-  });
-});
-
-function sort(mode: "asc" | "desc") {
-  sorting.value = mode;
-}
+const {
+  sorting,
+  sortedItems: displayedUsers,
+  sort,
+} = useSort<User>(availableUsers, "fullName");
 
 // data() {
 //   return {
