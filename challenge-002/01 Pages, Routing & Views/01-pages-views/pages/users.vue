@@ -6,7 +6,11 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+definePageMeta({
+  layout: "users",
+});
+
 const userId = ref("");
 // const router = useRouter();
 

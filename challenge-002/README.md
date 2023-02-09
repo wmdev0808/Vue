@@ -725,6 +725,34 @@
 
   - For example, in above example, value of `foobar` will be available using `attrs.foobar`.
 
+### Randering an Error Page
+
+- When Nuxt encounters a fatal error, whether during the server lifecycle, or when rendering your Vue application (both SSR and SPA), it will either render a JSON response (if requested with `Accept: application/json` header) or an HTML error page.
+
+- You can customize this error page by adding `~/error.vue` in the source directory of your application, alongside `app.vue`. This page has a single prop - `error` which contains an error for you to handle.
+
+- When you are ready to remove the error page, you can call the `clearError` helper function, which takes an optional path to redirect to (for example, if you want to navigate to a 'safe' page).
+
+- **NOTE**: Make sure to check before using anything dependent on Nuxt plugins, such as `$route` or `useRouter`, as if a plugin threw an error, then it won't be re-run until you clear the error.
+
+#### Example
+
+- error.vue
+
+  ```vue
+  <template>
+    <button @click="handleError">Clear errors</button>
+  </template>
+
+  <script setup>
+  const props = defineProps({
+    error: Object,
+  });
+
+  const handleError = () => clearError({ redirect: "/" });
+  </script>
+  ```
+
 ## 02 Project
 
 ## 03 Handlinig Data
