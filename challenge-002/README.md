@@ -657,6 +657,27 @@
   </script>
   ```
 
+### Route Validation
+
+- Nuxt offers route validation via the `validate` property in `definePageMeta` in each page you wish to validate.
+
+- The `validate` property accepts the `route` as an argument. You can return a boolean value to determine whether or not this is a valid route to be rendered with this page. If you return `false`, and another match can't be found, this will cause a 404 error. You can also directly return an object with `statusCode`/`statusMessage` to respond immediately with an error (other matches will not be checked).
+
+- If you have a more complex use case, then you can use anonymous route middleware instead.
+
+- pages/post/[id].vue
+
+  ```vue
+  <script setup>
+  definePageMeta({
+    validate: async (route) => {
+      // Check if the id is made up of digits
+      return /^\d+$/.test(route.params.id);
+    },
+  });
+  </script>
+  ```
+
 ## 02 Project
 
 ## 03 Handlinig Data
