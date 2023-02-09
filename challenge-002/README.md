@@ -678,6 +678,53 @@
   </script>
   ```
 
+### `<NuxtPage>`
+
+- `<NuxtPage>` is a built-in component that comes with Nuxt. NuxtPage is required to display top-level or nested pages located in the `pages/` directory.
+
+- `NuxtPage` is a wrapper around `<RouterView>` component from Vue Router. `NuxtPage` component accepts same `name` and `route` props.
+
+  - **name**: type: `string`
+
+    - `name` helps `RouterView` render the component with the corresponding name in the matched route record's components option.
+
+  - **route**: type: `RouteLocationNormalized`
+
+    - `route` is a route location that has all of its components resolved.
+      - Nuxt automatically resolves the `name` and `route` by scanning and rendering all Vue component files found in the `/pages` directory.
+
+  - **pageKey**: type: `string` or `function`
+    - `pageKey` helps control when the `NuxtPage` component is re-rendered.
+
+#### Example
+
+- For example, passing `static` key, `NuxtPage` component is rendered only once when it is mounted.
+
+  ```vue
+  <!-- static key -->
+  <NuxtPage page-key="static" />
+  ```
+
+- Alternatively, `pageKey` can be passed as a `key` value via `definePageMeta` from the `<script>` section of your Vue component in the `/pages` directory.
+
+  ```vue
+  <script setup>
+  definePageMeta({
+    key: (route) => route.fullPath,
+  });
+  </script>
+  ```
+
+#### Custom Props
+
+- In addition, `NuxtPage` also accepts custom props that you may need to pass further down the hierarchy. These custom props are accessible via `attrs` in the Nuxt app.
+
+  ```vue
+  <NuxtPage :foobar="123" />
+  ```
+
+  - For example, in above example, value of `foobar` will be available using `attrs.foobar`.
+
 ## 02 Project
 
 ## 03 Handlinig Data
