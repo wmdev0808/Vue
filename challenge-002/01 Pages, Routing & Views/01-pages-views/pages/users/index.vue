@@ -7,9 +7,10 @@
 
 <script setup lang="ts">
 const userId = ref("");
-const router = useRouter();
+// const router = useRouter();
 
-function onLoadUser() {
-  router.push("/users/" + userId.value);
+async function onLoadUser() {
+  // router.push("/users/" + userId.value);
+  await navigateTo("/users/" + userId.value);
 }
 </script>
