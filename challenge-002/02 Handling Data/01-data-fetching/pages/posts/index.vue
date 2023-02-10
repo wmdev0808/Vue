@@ -8,7 +8,7 @@
 import { Post } from "~~/components/admin/AdminPostForm.vue";
 
 const { data: loadedPosts } = useAsyncData(() => {
-  return new Promise<Post[]>((resolve) => {
+  return new Promise<Post[]>((resolve, reject) => {
     setTimeout(() => {
       resolve([
         {
@@ -26,9 +26,23 @@ const { data: loadedPosts } = useAsyncData(() => {
             "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
         },
       ]);
+      // reject(new Error());
     }, 1000);
-  });
+  })
+    .then((data) => {
+      console.log(`data received: => `, data);
+      return data;
+    })
+    .catch((e) => {
+      console.log(`error occurred: => `, e);
+      throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+      // showError("Error occurred");
+    });
 });
+
+function logError(e: any) {
+  console.log(`error: => `, e);
+}
 </script>
 
 <style scoped>
