@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostsPostList />
+    <PostList />
   </div>
 </template>
 
