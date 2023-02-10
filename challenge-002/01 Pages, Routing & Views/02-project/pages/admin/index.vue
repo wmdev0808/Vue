@@ -11,6 +11,10 @@
 </template>
 
 <script setup lang="ts">
+definePageMeta({
+  layout: "admin",
+});
+
 async function navigateToNewPost() {
   return navigateTo("/admin/new-post");
 }

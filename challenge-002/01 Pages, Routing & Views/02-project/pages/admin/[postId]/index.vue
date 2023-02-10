@@ -9,6 +9,10 @@
 <script setup lang="ts">
 import { Post } from "~~/components/admin/AdminPostForm.vue";
 
+definePageMeta({
+  layout: "admin",
+});
+
 const loadedPost = ref<Post>({
   author: "Paul",
   title: "My awesome Post",
