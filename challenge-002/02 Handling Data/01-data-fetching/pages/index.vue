@@ -3,29 +3,35 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList :posts="loadedPosts" />
+    <PostList :posts="(loadedPosts as Post[])" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { Post } from "~~/components/admin/AdminPostForm.vue";
 
-const loadedPosts = ref<Post[]>([
-  {
-    id: "1",
-    title: "First Post",
-    previewText: "This is our first post!",
-    thumbnail:
-      "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  },
-  {
-    id: "2",
-    title: "Second Post",
-    previewText: "This is our second post!",
-    thumbnail:
-      "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-  },
-]);
+const { data: loadedPosts } = useAsyncData(() => {
+  return new Promise<Post[]>((resolve) => {
+    setTimeout(() => {
+      resolve([
+        {
+          id: "1",
+          title: "First Post",
+          previewText: "This is our first post!",
+          thumbnail:
+            "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+        },
+        {
+          id: "2",
+          title: "Second Post",
+          previewText: "This is our second post!",
+          thumbnail:
+            "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+        },
+      ]);
+    }, 1500);
+  });
+});
 </script>
 
 <style scoped>
