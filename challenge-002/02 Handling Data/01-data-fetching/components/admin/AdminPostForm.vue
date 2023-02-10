@@ -27,6 +27,7 @@ export interface Post {
   thumbnail: string;
   previewText?: string;
   content?: string;
+  updatedDate?: Date;
 }
 
 const { post } = defineProps<{ post?: Post }>();

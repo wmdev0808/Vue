@@ -21,8 +21,7 @@ defineProps({
     default: false,
   },
   posts: {
-    type: Array as PropType<Post[]>,
-    required: true,
+    type: Object as PropType<Post[] | null>,
   },
 });
 </script>
