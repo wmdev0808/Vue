@@ -757,6 +757,142 @@
 
 ## 03 Handlinig Data
 
+### State Management
+
+- Nuxt provides `useState` composable to create a reactive and SSR-friendly shared state across components.
+
+- `useState` is an SSR-friendly `ref` replacement. Its value will be preserved after server-side rendering (during client-side hydration) and shared across all components using a unique key.
+
+- `useState` only works during `setup` or `Lifecycle Hooks`.
+
+- Because the data inside `useState` will be serialized to JSON, it is important that it does not contain anything that cannot be serialized, such as classes, functions or symbols.
+
+#### Best Practices
+
+- Never define `const state = ref()` outside of `<script setup>` or `setup()` function.
+
+  - Such state will be shared across all users visiting your website and can lead to memory leaks!
+
+- Instead use `const useX = () => useState('x')`
+
+#### Examples
+
+##### Basic Usage
+
+- In this example, we use a component-local counter state. Any other component that uses `useState('counter')` shares the same reactive state.
+
+  - app.vue
+
+    ```vue
+    <script setup>
+    const counter = useState("counter", () => Math.round(Math.random() * 1000));
+    </script>
+
+    <template>
+      <div>
+        Counter: {{ counter }}
+        <button @click="counter++">+</button>
+        <button @click="counter--">-</button>
+      </div>
+    </template>
+    ```
+
+##### Advanced
+
+- In this example, we use a composable that detects the user's default locale from the HTTP request headers and keeps it in a `locale` state.
+
+  - composables/locale.ts
+
+    ```js
+    import type { Ref } from "vue";
+
+    export const useLocale = () =>
+      useState < string > ("locale", () => useDefaultLocale().value);
+
+    export const useDefaultLocale = (fallback = "en-US") => {
+      const locale = ref(fallback);
+      if (process.server) {
+        // Learn more about the nuxtApp interface on https://nuxt.com/docs/guide/going-further/internals#the-nuxtapp-interface
+        const reqLocale = useRequestHeaders()["accept-language"]?.split(",")[0];
+        if (reqLocale) {
+          locale.value = reqLocale;
+        }
+      } else if (process.client) {
+        const navLang = navigator.language;
+        if (navLang) {
+          locale.value = navLang;
+        }
+      }
+      return locale;
+    };
+
+    export const useLocales = () => {
+      const locale = useLocale();
+      const locales = ref([
+        "en-US",
+        "en-GB",
+        "ko-KR",
+        "zh-CN",
+        "ar-EG",
+        "fa-IR",
+        "ja-JP-u-ca-japanese",
+      ]);
+      if (!locales.value.includes(locale.value)) {
+        locales.value.unshift(locale.value);
+      }
+      return locales;
+    };
+
+    // Using Intl.DateTimeFormat for language-sensitive date and time formatting
+    // Learn more: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/DateTimeFormat
+    export const useLocaleDate = (
+      date: Ref<Date> | Date,
+      locale = useLocale()
+    ) => {
+      return computed(() =>
+        new Intl.DateTimeFormat(locale.value, { dateStyle: "full" }).format(
+          unref(date)
+        )
+      );
+    };
+    ```
+
+  - app.vue
+
+    ```js
+    <script setup lang="ts">
+    // see ../composables/locale.ts for the implementation
+    const locales = useLocales()
+    const locale = useLocale()
+    const date = useLocaleDate(new Date('2016-10-26') /* NUXT_BIRTHDAY */)
+    </script>
+
+    <template>
+      <NuxtExampleLayout example="other/locale">
+        <h1 class="text-xl opacity-50">
+          Nuxt birthday
+        </h1>
+        <p class="text-4xl">
+          {{ date }}
+        </p>
+        <div class="mt-4" />
+        <label for="locale-chooser">Preview a different locale</label>
+        <select id="locale-chooser" v-model="locale" class="m-auto w-50 border n-border-base rounded p-1">
+          <option v-for="l of locales" :key="l" :value="l">
+            {{ l }}
+          </option>
+        </select>
+      </NuxtExampleLayout>
+    </template>
+
+    ```
+
+### Vuex in Nuxt 3
+
+- Nuxt no longer provides a Vuex integration. Instead, the official Vue recommendation is to use `pinia`, which has built-in Nuxt support via a [Nuxt module](https://pinia.vuejs.org/ssr/nuxt.html). [Find out more about pinia here](https://pinia.vuejs.org/).
+
+- If you want to keep using Vuex, you can manually migrate to Vuex 4 following [these steps](https://vuex.vuejs.org/guide/migrating-to-4-0-from-3-x.html).
+
 ## 04 Connecting the App to the Backend
 
 ## 05 Nuxt - Config, Plugins & Modules
