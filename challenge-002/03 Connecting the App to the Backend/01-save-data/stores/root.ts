@@ -28,7 +28,12 @@ export const useRootStore = defineStore("root", {
         }
         this.setPosts(postsArray);
       } catch (e) {
-        console.log(e);
+        const err = e as NuxtError;
+        throw createError({
+          statusCode: err.statusCode,
+          statusMessage: err.statusMessage,
+          fatal: true,
+        });
       }
     },
     // mutations can now become actions, instead of `state` as first argument use `this`
