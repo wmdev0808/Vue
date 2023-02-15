@@ -9,29 +9,32 @@
 
 <script setup lang="ts">
 import { Post } from "~~/components/admin/AdminPostForm.vue";
+import { useRootStore } from "~~/stores/root";
 
-const { data: loadedPosts } = useAsyncData(() => {
-  return new Promise<Post[]>((resolve) => {
-    setTimeout(() => {
-      resolve([
-        {
-          id: "1",
-          title: "First Post",
-          previewText: "This is our first post!",
-          thumbnail:
-            "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-        },
-        {
-          id: "2",
-          title: "Second Post",
-          previewText: "This is our second post!",
-          thumbnail:
-            "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-        },
-      ]);
-    }, 1500);
-  });
-});
+// const { data: loadedPosts } = useAsyncData(() => {
+//   return new Promise<Post[]>((resolve) => {
+//     setTimeout(() => {
+//       resolve([
+//         {
+//           id: "1",
+//           title: "First Post",
+//           previewText: "This is our first post!",
+//           thumbnail:
+//             "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+//         },
+//         {
+//           id: "2",
+//           title: "Second Post",
+//           previewText: "This is our second post!",
+//           thumbnail:
+//             "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+//         },
+//       ]);
+//     }, 1500);
+//   });
+// });
+const rootStore = useRootStore();
+const loadedPosts = computed<Post[]>(() => rootStore.loadedPosts);
 </script>
 
 <style scoped>
