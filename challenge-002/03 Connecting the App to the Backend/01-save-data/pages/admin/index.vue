@@ -5,15 +5,21 @@
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
-      <PostList is-admin :posts="[]" />
+      <PostList is-admin :posts="loadedPosts" />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useRootStore } from "~~/stores/root";
+
 definePageMeta({
   layout: "admin",
 });
+
+const rootStore = useRootStore();
+
+const loadedPosts = computed(() => rootStore.loadedPosts);
 
 async function navigateToNewPost() {
   return navigateTo("/admin/new-post");

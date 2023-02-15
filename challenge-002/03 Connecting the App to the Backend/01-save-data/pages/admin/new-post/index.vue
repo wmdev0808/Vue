@@ -8,20 +8,19 @@
 
 <script setup lang="ts">
 import { Post } from "~~/components/admin/AdminPostForm.vue";
+import { useRootStore } from "~~/stores/root";
 
 definePageMeta({
   layout: "admin",
 });
 
 const config = useRuntimeConfig();
+const rootStore = useRootStore();
 
 function onSubmitted(postData: Post) {
-  $fetch(`${config.public.apiBase}/posts.json`, {
-    method: "POST",
-    body: postData,
-  })
-    .then((result) => console.log(result))
-    .catch((e) => console.log(e));
+  rootStore.createPost(postData).then(async () => {
+    await navigateTo("/admin");
+  });
 }
 </script>
 

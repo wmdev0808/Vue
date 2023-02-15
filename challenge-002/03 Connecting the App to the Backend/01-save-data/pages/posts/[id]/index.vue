@@ -24,25 +24,38 @@
 <script setup lang="ts">
 import { Post } from "~~/components/admin/AdminPostForm.vue";
 
+const config = useRuntimeConfig();
 const route = useRoute();
 
-const { data: loadedPost } = useAsyncData(() => {
-  return new Promise<Post>((resolve) => {
-    setTimeout(() => {
-      resolve({
-        id: "1",
-        title: "First Post (ID: " + route.params.id + ")",
-        previewText: "This is our first post!",
-        author: "Paul",
-        updatedDate: new Date(),
-        content:
-          "Some dummy text which is definitely not the preview text though!",
-        thumbnail:
-          "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-      });
-    }, 1000);
+// const { data: loadedPost } = useAsyncData(() => {
+//   return new Promise<Post>((resolve) => {
+//     setTimeout(() => {
+//       resolve({
+//         id: "1",
+//         title: "First Post (ID: " + route.params.id + ")",
+//         previewText: "This is our first post!",
+//         author: "Paul",
+//         updatedDate: new Date(),
+//         content:
+//           "Some dummy text which is definitely not the preview text though!",
+//         thumbnail:
+//           "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
+//       });
+//     }, 1000);
+//   });
+// });
+
+const { data: loadedPost, error } = await useFetch<Post>(
+  `${config.public.apiBase}/posts/${route.params.id}.json`
+);
+
+if (error.value) {
+  throw createError({
+    fatal: true,
+    statusCode: error.value?.statusCode,
+    statusMessage: error.value!.statusMessage,
   });
-});
+}
 </script>
 
 <style scoped>
