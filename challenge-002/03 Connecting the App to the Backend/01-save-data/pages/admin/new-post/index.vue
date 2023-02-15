@@ -1,15 +1,28 @@
 <template>
   <div class="admin-new-post-page">
     <section class="new-post-form">
-      <AdminPostForm />
+      <AdminPostForm @submit="onSubmitted" />
     </section>
   </div>
 </template>
 
 <script setup lang="ts">
+import { Post } from "~~/components/admin/AdminPostForm.vue";
+
 definePageMeta({
   layout: "admin",
 });
+
+const config = useRuntimeConfig();
+
+function onSubmitted(postData: Post) {
+  $fetch(`${config.public.apiBase}/posts.json`, {
+    method: "POST",
+    body: postData,
+  })
+    .then((result) => console.log(result))
+    .catch((e) => console.log(e));
+}
 </script>
 
 <style scoped>
