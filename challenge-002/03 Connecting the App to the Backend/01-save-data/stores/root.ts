@@ -1,8 +1,11 @@
+import { NuxtError } from "#app";
 import { Post } from "~~/components/admin/AdminPostForm.vue";
 
 interface State {
   loadedPosts: Post[];
 }
+
+type PostResponse = Record<string, Post>;
 
 // Option Store
 export const useRootStore = defineStore("root", {
@@ -11,29 +14,22 @@ export const useRootStore = defineStore("root", {
     loadedPosts: [],
   }),
   actions: {
-    fetchPosts() {
-      return new Promise<void>((resolve, reject) => {
-        setTimeout(() => {
-          this.setPosts([
-            {
-              id: "1",
-              title: "First Post",
-              previewText: "This is our first post!",
-              thumbnail:
-                "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-            },
-            {
-              id: "2",
-              title: "Second Post",
-              previewText: "This is our second post!",
-              thumbnail:
-                "https://static.pexels.com/photos/270348/pexels-photo-270348.jpeg",
-            },
-          ]);
-          resolve();
-          // reject(new Error());
-        }, 1000);
-      });
+    async fetchPosts() {
+      const config = useRuntimeConfig();
+
+      try {
+        const res = await $fetch<PostResponse>(
+          `${config.public.apiBase}/posts.json`
+        );
+
+        const postsArray: Post[] = [];
+        for (const key in res) {
+          postsArray.push({ ...res[key], id: key });
+        }
+        this.setPosts(postsArray);
+      } catch (e) {
+        console.log(e);
+      }
     },
     // mutations can now become actions, instead of `state` as first argument use `this`
     setPosts(payload: Post[]) {

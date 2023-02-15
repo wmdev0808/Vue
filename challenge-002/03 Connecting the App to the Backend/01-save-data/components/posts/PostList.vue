@@ -7,7 +7,7 @@
       :is-admin="isAdmin"
       :thumbnail="post.thumbnail"
       :title="post.title"
-      :previewText="post.previewText!"
+      :previewText="post.previewText || post.content!.slice(0, 10)"
     />
   </section>
 </template>
