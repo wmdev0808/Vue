@@ -1,3 +1,6 @@
 <template>
-  <div>Nuxt app</div>
+  <div>Nuxt app config</div>
+  <div>
+    <NuxtPage />
+  </div>
 </template>
