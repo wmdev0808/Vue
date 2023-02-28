@@ -1,6 +1,9 @@
 <template>
   <div>
-    <p>Today is: {{ $formatDate(new Date()) }}</p>
-    <NuxtWelcome />
+    <NuxtLayout>
+      <NuxtPage />
+    </NuxtLayout>
+
+    <!-- <NuxtWelcome /> -->
   </div>
 </template>
