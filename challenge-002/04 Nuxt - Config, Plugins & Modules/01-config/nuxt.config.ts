@@ -18,10 +18,42 @@ export default defineNuxtConfig({
       ],
     },
   },
+  /**
+   * Shared build configuration
+   */
+  build: {},
   components: [
     {
       path: "~/components",
       pathPrefix: false,
     },
   ],
+  /**
+   * Global CSS
+   */
+  css: [
+    // CSS file in the project
+    "~/assets/styles/main.css",
+  ],
+  /**
+   * Whether Nuxt is running in development mode.
+   */
+  dev: false,
+  /**
+   * Plugins to load before mounting the App
+   */
+  plugins: [],
+  /**
+   * Nuxt.js modules
+   */
+  modules: [],
+
+  /**
+   * Runtime config allows passing dynamic config and environment variables to the Nuxt app context.
+   */
+  runtimeConfig: {
+    public: {
+      apiBase: "",
+    },
+  },
 });
