@@ -1,6 +1,8 @@
 <template>
-  <div>About page</div>
-  <p>{{ resolvedData }}</p>
+  <div>
+    <div>About page</div>
+    <p>{{ resolvedData }}</p>
+  </div>
 </template>
 
 <script setup lang="ts">

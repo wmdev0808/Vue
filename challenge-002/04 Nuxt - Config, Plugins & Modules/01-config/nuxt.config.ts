@@ -26,12 +26,15 @@ export default defineNuxtConfig({
     /**
      * Default values for layout transitions.
      */
-    layoutTransition: true,
+    layoutTransition: {
+      name: "fade",
+      mode: "out-in",
+    },
     /**
      * Default values for page transitions.
      */
     pageTransition: {
-      name: "page",
+      name: "fade",
       mode: "out-in",
     },
   },
