@@ -1,4 +1,10 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+/**
+ * Nuxt 2:
+ * export default {
+ *  // ...
+ * }
+ */
 export default defineNuxtConfig({
   app: {
     /** Head of the page */
@@ -16,6 +22,17 @@ export default defineNuxtConfig({
           href: "https://fonts.googleapis.com/css?family=Open+Sans",
         },
       ],
+    },
+    /**
+     * Default values for layout transitions.
+     */
+    layoutTransition: true,
+    /**
+     * Default values for page transitions.
+     */
+    pageTransition: {
+      name: "page",
+      mode: "out-in",
     },
   },
   /**
@@ -40,17 +57,42 @@ export default defineNuxtConfig({
    */
   dev: false,
   /**
+   * Hooks are listeners to Nuxt events that are typically used in modules,
+   * but are also available in nuxt.config.
+   * Internally, hooks follow a naming pattern using colons (e.g., build:done).
+   *
+   * Nuxt 2:
+   * router: {
+   *  extendRoutes(routes) {
+   *    //
+   *  }
+   * }
+   */
+  hooks: {
+    /**
+     * Called after pages routes are resolved.
+     * @param pages  — Array containing resolved pages
+     */
+    "pages:extend"(pages) {
+      //
+    },
+  },
+  /**
+   * Nuxt.js modules
+   *
+   * Nuxt 2:
+   *
+   * buildModules
+   */
+  modules: [],
+  /**
    * Plugins to load before mounting the App
    */
   plugins: [],
   /**
-   * Nuxt.js modules
-   */
-  modules: [],
-  /**
    * Define the root directory of your application.
    */
-  rootDir: "/",
+  // rootDir: "/",
   /**
    * Additional options passed to vue-router
    */
@@ -67,4 +109,9 @@ export default defineNuxtConfig({
       apiBase: "",
     },
   },
+  /**
+   * Define the source directory of your Nuxt application.
+   * If a relative path is specified, it will be relative to the `rootDir`
+   */
+  // srcDir: "src",
 });
