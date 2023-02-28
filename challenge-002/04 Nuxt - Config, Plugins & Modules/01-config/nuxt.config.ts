@@ -47,7 +47,18 @@ export default defineNuxtConfig({
    * Nuxt.js modules
    */
   modules: [],
-
+  /**
+   * Define the root directory of your application.
+   */
+  rootDir: "/",
+  /**
+   * Additional options passed to vue-router
+   */
+  router: {
+    options: {
+      linkActiveClass: "active",
+    },
+  },
   /**
    * Runtime config allows passing dynamic config and environment variables to the Nuxt app context.
    */
