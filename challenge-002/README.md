@@ -1351,6 +1351,47 @@ npm install pinia @pinia/nuxt
 
 ## 06 Middleware & Authentication
 
+### Route Middleware
+
+- Nuxt provides a customizable route middleware framework you can use throughout your application, ideal for extracting code that you want to run before navigating to a particular route.
+
+  - Note: Route middleware runs within the Vue part of your Nuxt app. Despite the similar name, they are completely different from server middleware, which are run in the Nitro server part of your app.
+
+- There are three kinds of route middleware:
+
+  1. Anonymous (or inline) route middleware, which are defined directly in the pages where they are used.
+
+  2. Named route middleware, which are placed in the `middleware/` directory and will be automatically loaded via asynchronous import when used on a page. (`Note`: The route middleware name is normalized to kebab-case, so `someMiddleware` becomes `some-middleware`.)
+
+  3. Global route middleware, which are placed in the `middleware/` directory (with a `.global` suffix) and will be automatically run on every route change.
+
+- Example of an `auth` middleware protecting the `/dashboard` page:
+
+  - middleware/auth.ts
+
+    ```ts
+    export default defineNuxtRouteMiddleware((to, from) => {
+      // isAuthenticated() is an example method verifying if a user is authenticated
+      if (isAuthenticated() === false) {
+        return navigateTo("/login");
+      }
+    });
+    ```
+
+  - pages/dashboard.vue
+
+    ```vue
+    <script setup>
+    definePageMeta({
+      middleware: "auth",
+    });
+    </script>
+
+    <template>
+      <h1>Welcome to your dashboard</h1>
+    </template>
+    ```
+
 ## 07 The Server Side
 
 ## 08 Building a Nuxt App
