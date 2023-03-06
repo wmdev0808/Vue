@@ -12,6 +12,7 @@ import { useRootStore } from "~~/stores/root";
 
 definePageMeta({
   layout: "admin",
+  middleware: ["check-auth", "auth"],
 });
 
 const config = useRuntimeConfig();
