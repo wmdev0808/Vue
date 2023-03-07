@@ -7,7 +7,6 @@ function PiniaAuthPlugin({ store }: PiniaPluginContext) {
       store.$patch({ token: token } as StateTree);
     }
   }
-  console.log(`pinia plugin has been executed`);
 }
 
 export default defineNuxtPlugin(({ $pinia }) => {
