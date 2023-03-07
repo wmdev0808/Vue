@@ -143,6 +143,7 @@ export const useRootStore = defineStore("root", {
         token === null ||
         new Date().getTime() > +expirationDate
       ) {
+        this.clearToken();
         return;
       }
 
