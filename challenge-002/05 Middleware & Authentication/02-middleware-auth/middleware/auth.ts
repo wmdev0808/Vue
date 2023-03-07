@@ -4,7 +4,7 @@ export default defineNuxtRouteMiddleware((to, from) => {
   console.log("[Middleware] Just Auth");
   const rootStore = useRootStore();
 
-  if (process.client && !rootStore.isAuthenticated) {
+  if (!rootStore.isAuthenticated) {
     return navigateTo("/admin/auth");
   }
 });

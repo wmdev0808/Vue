@@ -1,7 +1,8 @@
 <template>
   <div class="admin-page">
     <section class="new-post">
-      <button @click="navigateToNewPost">Create Post</button>
+      <AppButton @click="navigateToNewPost">Create Post</AppButton>
+      <AppButton style="margin-left: 10px" @click="onLogout">Logout</AppButton>
     </section>
     <section class="existing-posts">
       <h1>Existing Posts</h1>
@@ -24,6 +25,11 @@ const loadedPosts = computed(() => rootStore.loadedPosts);
 
 async function navigateToNewPost() {
   return navigateTo("/admin/new-post");
+}
+
+async function onLogout() {
+  rootStore.logout();
+  await navigateTo("/admin/auth");
 }
 </script>
 

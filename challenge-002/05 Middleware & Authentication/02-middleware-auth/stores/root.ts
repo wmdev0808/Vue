@@ -104,6 +104,12 @@ export const useRootStore = defineStore("root", {
     },
     authenticateUser(authInput: AuthInput) {
       const config = useRuntimeConfig();
+      const authCookie = useCookie<{
+        token: string | null;
+        expirationDate: string | null;
+      }>("authInfo", {
+        default: () => ({ token: this.token, expirationDate: null }),
+      });
 
       let authUrl = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${config.public.apiKey}`;
       if (!authInput.isLogin) {
@@ -119,13 +125,20 @@ export const useRootStore = defineStore("root", {
         },
       })
         .then((result) => {
-          this.setToken(result.idToken);
-          localStorage.setItem("token", result.idToken);
-          localStorage.setItem(
-            "tokenExpiration",
-            (new Date().getTime() + +result.expiresIn * 1000).toString()
-          );
-          this.setLogoutTimer(+result.expiresIn * 1000);
+          const token = result.idToken;
+          const tokenExpiration = (
+            new Date().getTime() +
+            +result.expiresIn * 1000
+          ).toString();
+
+          this.setToken(token);
+          localStorage.setItem("token", token);
+          localStorage.setItem("tokenExpiration", tokenExpiration);
+
+          authCookie.value.token = token;
+          authCookie.value.expirationDate = tokenExpiration;
+
+          // this.setLogoutTimer(+result.expiresIn * 1000);
         })
         .catch((e) => console.log(e));
     },
@@ -134,20 +147,54 @@ export const useRootStore = defineStore("root", {
         this.clearToken();
       }, duration);
     },
+    logout() {
+      const authCookie = useCookie<{
+        token: string | null;
+        expirationDate: string | null;
+      }>("authInfo");
+
+      this.clearToken();
+
+      if (authCookie && authCookie.value) {
+        authCookie.value.token = null;
+        authCookie.value.expirationDate = null;
+      }
+
+      if (process.client) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("tokenExpiration");
+      }
+    },
     initAuth() {
-      const token = localStorage.getItem("token");
-      const expirationDate = localStorage.getItem("tokenExpiration");
+      const authCookie = useCookie<{
+        token: string | null;
+        expirationDate: string | null;
+      }>("authInfo");
+
+      let token: string | null, expirationDate: string | null;
+
+      if (process.server) {
+        if (!authCookie) {
+          return;
+        }
+        token = authCookie.value.token;
+        expirationDate = authCookie.value.expirationDate;
+      } else {
+        token = localStorage.getItem("token");
+        expirationDate = localStorage.getItem("tokenExpiration");
+      }
 
       if (
         expirationDate === null ||
         token === null ||
         new Date().getTime() > +expirationDate
       ) {
-        this.clearToken();
+        console.log("No token or invalid token");
+        this.logout();
         return;
       }
 
-      this.setLogoutTimer(+expirationDate - new Date().getTime());
+      // this.setLogoutTimer(+expirationDate - new Date().getTime());
       this.setToken(token);
     },
     // mutations can now become actions, instead of `state` as first argument use `this`
