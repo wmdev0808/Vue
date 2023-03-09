@@ -20,6 +20,11 @@
               >Matching HTTP Method</NuxtLink
             >
           </li>
+          <li class="nav-item">
+            <NuxtLink to="/advanced-examples/server-storage"
+              >Server Storage</NuxtLink
+            >
+          </li>
         </ul>
       </div>
     </header>
