@@ -44,6 +44,8 @@ export const useRootStore = defineStore("root", {
           postsArray.push({ ...res[key], id: key });
         }
         this.setPosts(postsArray);
+
+        return postsArray;
       } catch (e) {
         const err = e as NuxtError;
         throw createError({
