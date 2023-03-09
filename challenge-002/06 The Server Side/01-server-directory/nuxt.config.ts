@@ -6,4 +6,7 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  runtimeConfig: {
+    KEY: "xxx-xxxx",
+  },
 });
