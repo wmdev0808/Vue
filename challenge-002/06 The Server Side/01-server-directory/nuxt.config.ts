@@ -6,6 +6,8 @@ export default defineNuxtConfig({
       pathPrefix: false,
     },
   ],
+  // https://nitro.unjs.io/config
+  nitro: {},
   runtimeConfig: {
     KEY: "xxx-xxxx",
   },
