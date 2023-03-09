@@ -7,5 +7,7 @@ export default defineEventHandler((event) => {
       statusMessage: "ID should be an integer",
     });
   }
+  // Returning other status codes
+  // setResponseStatus(202);
   return "All good";
 });
