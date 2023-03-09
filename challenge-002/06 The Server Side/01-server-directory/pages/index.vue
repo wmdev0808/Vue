@@ -1,13 +1,7 @@
 <template>
   <div>
     <div>
-      <h1>Example</h1>
-      <p>Fetched from<pre>/api/hello</pre>: {{ hello }}</p>
+      <h1>Server Directory</h1>
     </div>
   </div>
-  
 </template>
-
-<script setup lang="ts">
-const {data: hello} = await useFetch('/api/hello')
-</script>
