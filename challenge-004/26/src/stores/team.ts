@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
-import type { Member, Team } from '@/types/teams'
+import type { Member } from '@/types/teams'
 
 export const useTeamStore = defineStore('team', () => {
   // state
