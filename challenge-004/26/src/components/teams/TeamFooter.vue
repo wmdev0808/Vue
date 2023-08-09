@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Team } from '@/types/teams'
+import { useTeamStore } from '@/stores/team'
 
-defineProps<{ team: Team }>()
+const team = useTeamStore()
 </script>
 
 <template>

@@ -1,7 +1,13 @@
 <script setup lang="ts">
-import type { Team } from '@/types/teams'
+import { useTeamStore } from '@/stores/team'
 
-defineProps<{ team: Team }>()
+const emit = defineEmits<{ (event: 'add'): void }>()
+
+const team = useTeamStore()
+
+function addMember() {
+  emit('add')
+}
 </script>
 
 <template>
@@ -10,6 +16,7 @@ defineProps<{ team: Team }>()
       <button
         class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
         :disabled="team.members.length === team.spots"
+        @click="addMember"
       >
         Add Member ({{ team.spots - team.members.length }} Spots Left)
       </button>

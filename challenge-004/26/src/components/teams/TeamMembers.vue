@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Team } from '@/types/teams'
+import { useTeamStore } from '@/stores/team'
 import TeamMember from './TeamMember.vue'
 
-defineProps<{ team: Team }>()
+const team = useTeamStore()
 </script>
 
 <template>
