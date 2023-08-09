@@ -1,25 +1,14 @@
 <script setup lang="ts">
 import { useTeamStore } from '@/stores/team'
-
-const emit = defineEmits<{ (event: 'add'): void }>()
+import AddMemberModal from './AddMemberModal.vue'
 
 const team = useTeamStore()
-
-function addMember() {
-  emit('add')
-}
 </script>
 
 <template>
   <header class="flex justify-between">
     <div>
-      <button
-        class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded disabled:bg-gray-400"
-        :disabled="team.members.length === team.spots"
-        @click="addMember"
-      >
-        Add Member ({{ team.spots - team.members.length }} Spots Left)
-      </button>
+      <AddMemberModal />
     </div>
 
     <div>
