@@ -1,6 +1,7 @@
 <script setup lang="ts">
+import CounterView from '@/components/CounterView.vue'
 import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+// import TheWelcome from './components/TheWelcome.vue'
 </script>
 
 <template>
@@ -14,6 +15,7 @@ import TheWelcome from './components/TheWelcome.vue'
 
   <main>
     <!-- <TheWelcome /> -->
+    <CounterView />
   </main>
 </template>
 
