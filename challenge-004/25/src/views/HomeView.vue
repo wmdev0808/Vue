@@ -1,9 +1,12 @@
 <script setup lang="ts">
-import TheWelcome from '../components/TheWelcome.vue'
+import UsageView from './UsageView.vue'
+
+// import TheWelcome from '../components/TheWelcome.vue'
 </script>
 
 <template>
   <main>
-    <TheWelcome />
+    <!-- <TheWelcome /> -->
+    <UsageView />
   </main>
 </template>
